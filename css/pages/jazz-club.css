@@ -1,8 +1,4 @@
 body.jazz-klubben {
-  background-color: blue;
+  background-color: rgb(163, 163, 255);
   color: white;
-
-  a {
-    color: white;
-  }
 }

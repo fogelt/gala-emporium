@@ -3,13 +3,152 @@
 @import '../pages/jazz-club.css';
 @import '../pages/metal-club.css';
 
+/* General Page Styles */
 body {
-  margin: 20px;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #f8f9fc;
+  color: #222;
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
 }
 
-.pet {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
+/* Page Titles */
+h1 {
+  font-size: 2.2rem;
+  color: #111;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Section Title */
+h2 {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* Event Cards */
+.event {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 700px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Event Headings */
+.event h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #0052cc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Event Description */
+.event p {
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+/* Optional: Responsive Adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .event {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Header + Navigation */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+header nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  font-size: 1.1rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+header nav a:hover {
+  color: #0052cc;
+}
+
+/* Active link indicator (JS sets body class like 'start', 'jazz-klubben', etc.) */
+body.start a[href="#start"],
+body.jazz-klubben a[href="#jazz-klubben"],
+body.metal-klubben a[href="#metal-klubben"] {
+  color: #0052cc;
+  font-weight: 600;
+}
+
+body.start a[href="#start"]::after,
+body.jazz-klubben a[href="#jazz-klubben"]::after,
+body.metal-klubben a[href="#metal-klubben"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0052cc;
+  border-radius: 2px;
+}
+
+/* Main layout */
+main {
+  margin-top: 2rem;
+}
+
+/* Optional: subtle page transition effect */
+main {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards ease-in-out;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }

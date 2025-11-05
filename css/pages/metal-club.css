@@ -1,8 +1,5 @@
 body.metal-klubben {
-  background-color: black;
+  background-color: rgb(255, 182, 182);
   color: white;
 
-  a {
-    color: yellow;
-  }
 }
