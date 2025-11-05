@@ -3,6 +3,8 @@ import jazzClub from './pages/jazz-club.js';
 import metalClub from './pages/metal-club.js';
 import punkClub from './pages/punk-club.js';
 
+
+let userMemberships = [];
 // Our menu: label to display in menu and 
 // function to run on menu choice
 const menu = {
@@ -24,17 +26,49 @@ function createMenu() {
 }
 
 async function loadPageContent() {
-  // if no hash redirect to #start
   if (location.hash === '') { location.replace('#start'); }
-  // add a class on body so that we can style differnt pages differently
-  document.body.setAttribute('class', location.hash.slice(1));
-  // get the correct function to run depending on location.hash
-  const functionToRun = menu[location.hash.slice(1)].function;
-  // run the function and expect it return a html string
+
+  let club = location.hash.slice(1);
+  document.body.setAttribute('class', club);
+
+  const functionToRun = menu[club].function;
   const html = await functionToRun();
-  // replace the contents of the main element
   document.querySelector('main').innerHTML = html;
+
+
+  document.querySelector('#member-text')?.remove();
+  document.querySelector('#toggle-member')?.remove();
+  if (club === 'start') {
+    return;
+  }
+
+  const memberText = document.createElement('div');
+  memberText.id = 'member-text';
+  document.body.appendChild(memberText);
+
+  let toggleBtn = document.createElement('button');
+  toggleBtn.id = 'toggle-member';
+  document.body.appendChild(toggleBtn);
+
+  function updateMembershipDisplay() {
+    let isMember = userMemberships.includes(club);
+    memberText.textContent = isMember ? 'Medlem' : 'Du har inte gått med i denna klubben';
+    toggleBtn.textContent = isMember ? 'Lämna klubben' : 'Gå med i klubben';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if (userMemberships.includes(club)) {
+      userMemberships = userMemberships.filter(c => c !== club);
+    } else {
+      userMemberships.push(club);
+    }
+    updateMembershipDisplay();
+  });
+
+  // Initial render
+  updateMembershipDisplay();
 }
+
 
 // call loadPageContent once on page load
 loadPageContent();
