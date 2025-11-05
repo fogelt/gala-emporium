@@ -9,6 +9,11 @@
       "id": "fg5i",
       "name": "Metal-klubben",
       "description": "Ylande metal som får dig att vilja erövra världen! Varje vecka med Tom som konferencier."
+    },
+    {
+      "id": "f78d",
+      "name": "Punk-klubben",
+      "description": "punk punk"
     }
   ],
   "events": [
@@ -32,6 +37,13 @@
       "name": "Fusion-jazzarna Corea's Disciples",
       "description": "Cool fusion-jazz med en massa dim-ackord.",
       "clubId": "a37c"
+    },
+    {
+      "id": "435c",
+      "date": "2025-11-01 19:00",
+      "name": "Punk-rockarna Ramones",
+      "description": "Cool punk med massa dans",
+      "clubId": "f78d"
     }
   ]
 }
