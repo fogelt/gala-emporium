@@ -2,11 +2,11 @@ import start from './pages/start.js';
 import jazzClub from './pages/jazz-club.js';
 import metalClub from './pages/metal-club.js';
 import punkClub from './pages/punk-club.js';
+import filterAndRenderEvents from './utils/search.js';
 
 
 let userMemberships = [];
-// Our menu: label to display in menu and 
-// function to run on menu choice
+
 const menu = {
   "start": { label: 'Start', function: start },
   "jazz-klubben": { label: 'Jazz-klubben', function: jazzClub },
@@ -15,14 +15,21 @@ const menu = {
 };
 
 function createMenu() {
-  // Object.entries -> convert object to array
-  // then map to create a-tags (links)
-  // then join everything into one big string
   return Object.entries(menu)
     .map(([urlHash, { label }]) => `
       <a href="#${urlHash}">${label}</a>
     `)
     .join('');
+}
+
+function setupSearch(events) {
+  const input = document.querySelector('#eventSearch');
+  const container = document.querySelector('#eventsContainer');
+  if (!input || !container) return;
+
+  input.addEventListener('input', (e) => {
+    container.innerHTML = filterAndRenderEvents(events, e.target.value);
+  });
 }
 
 async function loadPageContent() {
@@ -32,12 +39,16 @@ async function loadPageContent() {
   document.body.setAttribute('class', club);
 
   const functionToRun = menu[club].function;
-  const html = await functionToRun();
+  const { html, events } = await functionToRun();
   document.querySelector('main').innerHTML = html;
 
 
   document.querySelector('#member-text')?.remove();
   document.querySelector('#toggle-member')?.remove();
+  // Only setup search if events exist
+  if (events?.length) {
+    setupSearch(events);
+  }
   if (club === 'start') {
     return;
   }
@@ -65,16 +76,11 @@ async function loadPageContent() {
     updateMembershipDisplay();
   });
 
-  // Initial render
   updateMembershipDisplay();
+
 }
 
 
-// call loadPageContent once on page load
 loadPageContent();
-
-// and then on every hash change of the url/location
 window.onhashchange = loadPageContent;
-
-// create the menu and display it
 document.querySelector('header nav').innerHTML = createMenu();
