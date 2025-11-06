@@ -154,36 +154,8 @@ main {
   }
 }
 
-#member-text {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  color: #333;
-  font-weight: 500;
-  z-index: 999;
-}
+#member-text {}
 
-#toggle-member {
-  position: fixed;
-  bottom: 50px;
-  right: 10px;
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  transition: background 0.3s;
-}
+#toggle-member {}
 
-#toggle-member:hover {
-  background: #0056b3;
-}
+#eventSearch {}
