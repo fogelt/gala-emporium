@@ -28,7 +28,8 @@
       "name": "New Orleans-bandet",
       "description": "New Orleans-bandet spelar old school jazz från 30-talet, med sväng och klarinett.",
       "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80",
-      "clubId": "a37c"
+      "clubId": "a37c",
+      "price": 250
     },
     {
       "id": "43ac",
@@ -36,7 +37,8 @@
       "name": "Fusion-jazzarna Corea's Disciples",
       "description": "Cool fusion-jazz med en massa dim-ackord.",
       "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
-      "clubId": "a37c"
+      "clubId": "a37c",
+      "price": 200
     },
     {
       "id": "jz03",
@@ -44,7 +46,8 @@
       "name": "Midnight Jazz Party",
       "description": "Festlig jazzkväll med DJ, live-sax och dans. Mjuk jazz möter klubbbeats — perfekt för en sen natt.",
       "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80",
-      "clubId": "a37c"
+      "clubId": "a37c",
+      "price": 300
     },
     {
       "id": "mt01",
@@ -52,7 +55,8 @@
       "name": "Mega Death-die",
       "description": "En open stage för death-metal-rockare, 30 minuter per band, upp till 6 band per kväll. Stjäl inte varandras effektpedaler!",
       "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80",
-      "clubId": "fg5i"
+      "clubId": "fg5i",
+      "price": 180
     },
     {
       "id": "pk01",
@@ -60,7 +64,8 @@
       "name": "Punk-rockarna Ramones",
       "description": "Cool punk med massa dans",
       "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80",
-      "clubId": "f78d"
+      "clubId": "f78d",
+      "price": 150
     },
     {
       "id": "e801",
@@ -68,7 +73,8 @@
       "name": "80's Classic Night",
       "description": "Spela klassiska 80-tals hits med liveband!",
       "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&q=80",
-      "clubId": "e80s"
+      "clubId": "e80s",
+      "price": 220
     },
     {
       "id": "e802",
@@ -76,7 +82,8 @@
       "name": "Rock Covers",
       "description": "Lokala band spelar dina favoritlåtar från 80-talet.",
       "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
-      "clubId": "e80s"
+      "clubId": "e80s",
+      "price": 200
     },
     {
       "id": "e803",
@@ -84,7 +91,8 @@
       "name": "Glam Rock Party",
       "description": "Färgglad glam rock och dans hela natten!",
       "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
-      "clubId": "e80s"
+      "clubId": "e80s",
+      "price": 250
     }
   ]
 }
