@@ -3,6 +3,7 @@ import jazzClub from './pages/jazz-club.js';
 import metalClub from './pages/metal-club.js';
 import punkClub from './pages/punk-club.js';
 import eightyClub from './pages/80srock-club.js';
+import { showEventDetails, setupEventCardClicks } from './utils/event-info.js';
 import { setupSearch, filterAndRenderEvents } from './utils/search.js';
 import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js';
 
@@ -42,6 +43,7 @@ async function loadPageContent() {
   if (club !== 'start') {
     appendMemberButton(club);
   }
+  setupEventCardClicks();
 }
 
 loadPageContent();

@@ -17,7 +17,7 @@ export default async function clubInfoAndEvents(clubId, extraHTML = '') {
     <input type="text" id="eventSearch" placeholder="Sök efter event..." class="search-bar">
     <div id="eventsContainer" class="events-section">
       ${events.map(({ id, date, name, description, club, image }) => `
-        <article class="event-card" data-event='${encodeURIComponent(JSON.stringify({ id, date, name, description, club, image }))}'>
+        <article class="event-card" data-event="${encodeURIComponent(JSON.stringify({ id, date, name, description, club, image }))}">
           ${image ? `<img src="${image}" alt="${name}">` : ''}
           <div class="event-card-content">
             <h3>${name}</h3>
