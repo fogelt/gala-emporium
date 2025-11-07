@@ -5,29 +5,35 @@
 @import '../pages/punk-club.css';
 
 /* General Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 body {
   font-family: 'Inter', Arial, sans-serif;
-  background-color: #f8f9fc;
-  color: #222;
+  background-color: #111;
+  color: #f2f2f2;
   margin: 0;
-  padding: 2rem;
+  padding: 1rem;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 /* Page Titles */
 h1 {
-  font-size: 2.2rem;
-  color: #111;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #f2f2f2;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin: 2rem 0 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 p {
   max-width: 700px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 3rem auto;
   text-align: center;
-  font-size: 1rem;
-  color: #555;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  color: #a0a0a0;
+  line-height: 1.6;
 }
 
 /* Section Title */
@@ -38,36 +44,90 @@ h2 {
   color: #333;
 }
 
-/* Event Cards */
-.event {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  margin: 1.5rem auto;
-  max-width: 700px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Events Section */
+.events-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-.event:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+@media (min-width: 600px) {
+  .events-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .events-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Event Cards */
+.event-card {
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-card-content {
+  padding: 1.5rem;
 }
 
 /* Event Headings */
-.event h3 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  color: #0052cc;
+.event-card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.5rem;
+  color: #e63946;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Event Meta */
+.event-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+.event-date {
+  font-weight: 500;
+}
+
+.event-club {
+  color: #e63946;
+  font-weight: 500;
 }
 
 /* Event Description */
-.event p {
-  margin-top: 0.5rem;
-  color: #444;
+.event-card p {
+  margin: 0;
+  color: #d1d1d1;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
 }
 
 /* Optional: Responsive Adjustments */
@@ -87,40 +147,48 @@ h2 {
 
 /* Header + Navigation */
 header {
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding: 1rem 0;
+  gap: clamp(1rem, 4vw, 2rem);
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 header nav a {
   text-decoration: none;
   font-weight: 500;
-  color: #333;
-  font-size: 1.1rem;
+  color: #f2f2f2;
+  font-size: 1rem;
   position: relative;
-  padding-bottom: 4px;
+  padding: 0.5rem 0;
   transition: color 0.2s ease;
 }
 
+header nav a[href="#start"] {
+  color: #e63946;
+}
+
 header nav a:hover {
-  color: #0052cc;
+  color: #e63946;
 }
 
 /* Active link indicator (JS sets body class like 'start', 'jazz-klubben', etc.) */
 body.start a[href="#start"],
 body.jazz-klubben a[href="#jazz-klubben"],
 body.metal-klubben a[href="#metal-klubben"] {
-  color: #0052cc;
+  color: #e63946;
   font-weight: 600;
 }
 
@@ -133,8 +201,29 @@ body.metal-klubben a[href="#metal-klubben"]::after {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #0052cc;
+  background-color: #e63946;
   border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #e63946;
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+header nav a:hover::after {
+  transform: scaleX(1);
 }
 
 /* Main layout */
@@ -152,4 +241,186 @@ main {
   to {
     opacity: 1;
   }
+}
+
+/* Event details & booking styles */
+.event-details {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  color: #f2f2f2;
+}
+
+.event-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Desktop: two-column layout with event info left and booking right */
+@media (min-width: 900px) {
+  .event-layout {
+    grid-template-columns: 1fr 380px;
+  }
+}
+
+.event-hero img {
+  width: 100%;
+  height: clamp(220px, 40vh, 420px);
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.event-info {
+  margin-top: 1rem;
+}
+
+.event-info h2 {
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+  margin: 0 0 0.5rem 0;
+  color: #f2f2f2;
+  line-height: 1.05;
+}
+
+.event-info .club-name {
+  color: #e63946;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.event-info p,
+.event-info .meta {
+  color: #d1d1d1;
+  margin: 0 0 1rem 0;
+}
+
+.event-meta {
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  color:#a8a8a8;
+  font-weight:500;
+}
+
+/* Booking form */
+.booking-form {
+  background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.booking-form h3 {
+  margin: 0 0 1rem 0;
+  color: #f2f2f2;
+  font-size: 1.1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.booking-form label {
+  display: block;
+  font-size: 0.9rem;
+  color: #e6e6e6;
+  margin-bottom: 0.35rem;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #ffffff;
+  color: #111;
+  font-size: 0.95rem;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.03);
+  transition: box-shadow 0.15s ease, transform 0.12s ease, border-color 0.12s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: rgba(230,57,70,0.95);
+  box-shadow: 0 0 0 4px rgba(230,57,70,0.12);
+}
+
+.booking-form .full {
+  grid-column: 1 / -1;
+}
+
+.booking-form .error {
+  border-color: #e63946 !important;
+  box-shadow: 0 0 0 4px rgba(230,57,70,0.12) !important;
+}
+
+.booking-form .actions {
+  margin-top: 0.75rem;
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+}
+
+.booking-form button {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.booking-form button:hover {
+  background: #c22b37;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(198,43,55,0.16);
+}
+
+.booking-form button:active {
+  transform: translateY(0) scale(0.997);
+}
+
+.confirmation-message {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(230,57,70,0.08);
+  color: #ffdede;
+  border-radius: 8px;
+  border: 1px solid rgba(230,57,70,0.18);
+}
+
+.no-events {
+  color: #cfcfcf;
+  padding: 1rem 0;
+}
+
+/* Accessibility: focus for keyboard nav on interactive items */
+a:focus, button:focus, .booking-form input:focus, .booking-form select:focus {
+  outline: 3px solid rgba(230,57,70,0.12);
+  outline-offset: 2px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .event-details { padding: 0.5rem; }
+  .booking-form { padding: 1rem; }
 }
