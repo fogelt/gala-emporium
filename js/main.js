@@ -3,10 +3,9 @@ import jazzClub from './pages/jazz-club.js';
 import metalClub from './pages/metal-club.js';
 import punkClub from './pages/punk-club.js';
 import eightyClub from './pages/80srock-club.js';
-import eventPage from './pages/event.js';
 import filterAndRenderEvents from './utils/search.js';
-
-let userMemberships = [];
+import { setupSearch } from './utils/search.js';
+import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js';
 
 const menu = {
   "start": { label: 'Start', function: start },
@@ -24,16 +23,6 @@ function createMenu() {
     .join('');
 }
 
-function setupSearch(events) {
-  const input = document.querySelector('#eventSearch');
-  const container = document.querySelector('#eventsContainer');
-  if (!input || !container) return;
-
-  input.addEventListener('input', (e) => {
-    container.innerHTML = filterAndRenderEvents(events, e.target.value);
-  });
-}
-
 async function loadPageContent() {
   if (location.hash === '') { location.replace('#start'); }
 
@@ -45,43 +34,16 @@ async function loadPageContent() {
   document.querySelector('main').innerHTML = html;
 
 
-  document.querySelector('#member-text')?.remove();
-  document.querySelector('#toggle-member')?.remove();
-  // Only setup search if events exist
+  updateMembershipDisplay(club);
+
+  eraseMemberButton();
   if (events?.length) {
     setupSearch(events);
   }
-  if (club === 'start') {
-    return;
+  if (club !== 'start') {
+    appendMemberButton(club);
   }
-
-  const memberText = document.createElement('div');
-  memberText.id = 'member-text';
-  document.body.appendChild(memberText);
-
-  let toggleBtn = document.createElement('button');
-  toggleBtn.id = 'toggle-member';
-  document.body.appendChild(toggleBtn);
-
-  function updateMembershipDisplay() {
-    let isMember = userMemberships.includes(club);
-    memberText.textContent = isMember ? 'Medlem' : 'Du har inte gått med i denna klubben';
-    toggleBtn.textContent = isMember ? 'Lämna klubben' : 'Gå med i klubben';
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    if (userMemberships.includes(club)) {
-      userMemberships = userMemberships.filter(c => c !== club);
-    } else {
-      userMemberships.push(club);
-    }
-    updateMembershipDisplay();
-  });
-
-  updateMembershipDisplay();
-
 }
-
 
 loadPageContent();
 window.onhashchange = loadPageContent;

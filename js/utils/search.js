@@ -25,3 +25,13 @@ export default function filterAndRenderEvents(events, searchTerm = '') {
     `)
     .join('');
 }
+
+export function setupSearch(events) {
+  const input = document.querySelector('#eventSearch');
+  const container = document.querySelector('#eventsContainer');
+  if (!input || !container) return;
+
+  input.addEventListener('input', (e) => {
+    container.innerHTML = filterAndRenderEvents(events, e.target.value);
+  });
+}
