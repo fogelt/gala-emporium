@@ -31,20 +31,28 @@
       "clubId": "a37c"
     },
     {
-      "id": "mt01",
-      "date": "2025-11-06 21:00",
-      "name": "Mega Death-die",
-      "description": "En open stage för death-metal-rockare, 30 minuter per band, upp till 6 band per kväll. Stjäl inte varandras effektpedaler!",
-      "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80",
-      "clubId": "fg5i"
-    },
-    {
       "id": "43ac",
       "date": "2025-11-01 19:00",
       "name": "Fusion-jazzarna Corea's Disciples",
       "description": "Cool fusion-jazz med en massa dim-ackord.",
       "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
       "clubId": "a37c"
+    },
+    {
+      "id": "jz03",
+      "date": "2025-11-28 22:00",
+      "name": "Midnight Jazz Party",
+      "description": "Festlig jazzkväll med DJ, live-sax och dans. Mjuk jazz möter klubbbeats — perfekt för en sen natt.",
+      "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=80",
+      "clubId": "a37c"
+    },
+    {
+      "id": "mt01",
+      "date": "2025-11-06 21:00",
+      "name": "Mega Death-die",
+      "description": "En open stage för death-metal-rockare, 30 minuter per band, upp till 6 band per kväll. Stjäl inte varandras effektpedaler!",
+      "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80",
+      "clubId": "fg5i"
     },
     {
       "id": "pk01",
