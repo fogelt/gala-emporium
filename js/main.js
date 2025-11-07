@@ -43,6 +43,10 @@ async function loadPageContent() {
     appendMemberButton(club);
   }
 }
+if (club !== 'start') {
+  appendMemberButton(club);
+}
+
 
 loadPageContent();
 window.onhashchange = loadPageContent;
