@@ -4,6 +4,7 @@ import metalClub from './pages/metal-club.js';
 import punkClub from './pages/punk-club.js';
 import eventPage from './pages/event.js';
 import filterAndRenderEvents from './utils/search.js';
+import pianoClub from './pages/piano-club.js';
 
 let userMemberships = [];
 
@@ -13,7 +14,8 @@ const menu = {
   "start": { label: 'Start', function: start },
   "jazz-klubben": { label: 'Jazz-klubben', function: jazzClub },
   "metal-klubben": { label: 'Metal-klubben', function: metalClub },
-  "punk-klubben": { label: 'Punk-klubben', function: punkClub }
+  "punk-klubben": { label: 'Punk-klubben', function: punkClub },
+  "piano-klubben": { label: 'Piano-klubben', function: pianoClub }
 };
 
 function setupSearch(events) {
