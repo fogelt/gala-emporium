@@ -1,43 +1,43 @@
 /* Grundlayout */
-body {
+body.\38 0s-rock-klubben {
   font-family: 'Arial', sans-serif;
   margin: 0;
   background: #111;
   color: #fff;
 }
 
-header {
+header.\38 0s-rock-klubben {
   background: linear-gradient(90deg, #ff0055, #ffcc00);
   padding: 1rem;
   text-align: center;
 }
 
-header h1 {
+header.\38 0s-rock-klubben h1 {
   font-family: 'Rock Salt', cursive;
   margin: 0;
 }
 
-nav a {
+header.\38 0s-rock-klubben nav a {
   margin: 0 1rem;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
 
-main {
+body.\38 0s-rock-klubben main {
   padding: 2rem;
 }
 
-section {
+body.\38 0s-rock-klubben section {
   margin-bottom: 3rem;
 }
 
-#events ul {
+body.\38 0s-rock-klubben #events ul {
   list-style: none;
   padding: 0;
 }
 
-#events li {
+body.\38 0s-rock-klubben #events li {
   background: #222;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -46,22 +46,24 @@ section {
   flex-direction: column;
 }
 
-form {
+body.\38 0s-rock-klubben form {
   display: flex;
   flex-direction: column;
   max-width: 400px;
 }
 
-form label {
+body.\38 0s-rock-klubben form label {
   margin: 0.5rem 0 0.2rem;
 }
 
-form input, form select, form button {
+body.\38 0s-rock-klubben form input,
+body.\38 0s-rock-klubben form select,
+body.\38 0s-rock-klubben form button {
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
 
-button {
+body.\38 0s-rock-klubben button {
   background: #ff0055;
   border: none;
   color: #fff;
@@ -69,11 +71,11 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+body.\38 0s-rock-klubben button:hover {
   background: #ff77aa;
 }
 
-footer {
+body.\38 0s-rock-klubben footer {
   text-align: center;
   padding: 1rem;
   background: #222;

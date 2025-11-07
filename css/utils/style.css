@@ -1,27 +1,27 @@
+/* === Imports === */
 @import './utils/setup-box-sizing.css';
 @import '../pages/start-page.css';
 @import '../pages/jazz-club.css';
 @import '../pages/metal-club.css';
 @import '../pages/punk-club.css';
-
-/* General Page Styles */
+@import '../pages/80srock-club.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* === Base Styles === */
 body {
   font-family: 'Inter', Arial, sans-serif;
   background-color: #111;
   color: #f2f2f2;
   margin: 0;
   padding: 1rem;
-  line-height: 1.6;
   min-height: 100vh;
+  line-height: 1.6;
 }
 
-/* Page Titles */
 h1 {
   font-size: clamp(2rem, 5vw, 3rem);
-  color: #f2f2f2;
   text-align: center;
+  color: #f2f2f2;
   margin: 2rem 0 1rem;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -29,14 +29,12 @@ h1 {
 
 p {
   max-width: 700px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 3rem;
   text-align: center;
   font-size: clamp(1rem, 1.2vw, 1.1rem);
   color: #a0a0a0;
-  line-height: 1.6;
 }
 
-/* Section Title */
 h2 {
   margin-top: 3rem;
   text-align: center;
@@ -44,7 +42,84 @@ h2 {
   color: #333;
 }
 
-/* Events Section */
+/* === Layout === */
+main {
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards ease-in-out;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* === Header + Navigation === */
+header {
+  background-color: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header nav a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  color: #f2f2f2;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+header nav a:hover,
+body.start a[href="#start"],
+body.jazz-klubben a[href="#jazz-klubben"],
+body.punk-klubben a[href="#punk-klubben"],
+body.\38 0s-rock-klubben a[href="#80s-rock-klubben"],
+body.metal-klubben a[href="#metal-klubben"] {
+  color: #e63946;
+  font-weight: 600;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #e63946;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+header nav a:hover::after,
+body.start a[href="#start"]::after,
+body.jazz-klubben a[href="#jazz-klubben"]::after,
+body.punk-klubben a[href="#punk-klubben"]::after,
+body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
+body.metal-klubben a[href="#metal-klubben"]::after {
+  transform: scaleX(1);
+}
+
+/* === Event Grid === */
 .events-section {
   max-width: 1400px;
   margin: 0 auto;
@@ -66,13 +141,13 @@ h2 {
   }
 }
 
-/* Event Cards */
+/* === Event Card === */
 .event-card {
-  background-color: #1a1a1a;
+  background: #1a1a1a;
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  cursor: pointer;
 }
 
 .event-card:hover {
@@ -91,16 +166,20 @@ h2 {
   padding: 1.5rem;
 }
 
-/* Event Headings */
 .event-card h3 {
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.75rem;
   font-size: 1.5rem;
   color: #e63946;
   font-weight: 600;
-  line-height: 1.3;
 }
 
-/* Event Meta */
+.event-card p {
+  margin: 0;
+  color: #d1d1d1;
+  font-size: 1rem;
+  text-align: left;
+}
+
 .event-meta {
   display: flex;
   justify-content: space-between;
@@ -112,301 +191,199 @@ h2 {
   color: #a0a0a0;
 }
 
-.event-date {
+.event-date,
+.event-club {
   font-weight: 500;
 }
 
 .event-club {
   color: #e63946;
-  font-weight: 500;
 }
 
-/* Event Description */
-.event-card p {
+/* === Event Modal === */
+.event-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  color: #f2f2f2;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.event-modal .close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #f2f2f2;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+
+.event-modal .close-btn:hover {
+  color: #e63946;
+}
+
+.event-image-large {
+  width: calc(100% - 2rem);
+  margin: 1rem;
+  object-fit: cover;
+  max-height: 45vh;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+.event-details {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  line-height: 1.3;
+}
+
+.event-details h2 {
+  margin: 0.25rem 0;
+  font-size: 1.5rem;
+}
+
+.event-details p {
   margin: 0;
-  color: #d1d1d1;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: left;
+  font-size: 0.95rem;
 }
 
-/* Optional: Responsive Adjustments */
+.event-details button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+.event-details button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.event-details button:hover {
+  background-color: #444;
+  border-color: #e63946;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.event-details button:active {
+  transform: translateY(0);
+  background-color: #2a2a2a;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Event search bar */
+#eventSearch,
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  margin: 1rem auto 2rem;
+  display: block;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#eventSearch::placeholder,
+.search-bar::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+#eventSearch:focus,
+.search-bar:focus {
+  outline: none;
+  border-color: #e63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+}
+
+/* === Misc === */
+.no-events {
+  color: #cfcfcf;
+  padding: 1rem 0;
+}
+
+/* === Responsive Tweaks === */
 @media (max-width: 600px) {
   body {
-    padding: 1rem;
-  }
-
-  .event {
     padding: 1rem;
   }
 
   h1 {
     font-size: 1.8rem;
   }
+
+  .event-details {
+    padding: 0.5rem;
+  }
+
+  .booking-form {
+    padding: 1rem;
+  }
 }
 
-/* Header + Navigation */
-header {
-  background-color: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-header nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(1rem, 4vw, 2rem);
-  padding: 1rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-header nav a {
-  text-decoration: none;
-  font-weight: 500;
-  color: #f2f2f2;
+/* Membership toggle button */
+#toggle-member {
+  display: block;
+  margin: 0.5rem auto 2rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  position: relative;
-  padding: 0.5rem 0;
-  transition: color 0.2s ease;
-}
-
-header nav a[href="#start"] {
-  color: #e63946;
-}
-
-header nav a:hover {
-  color: #e63946;
-}
-
-/* Active link indicator (JS sets body class like 'start', 'jazz-klubben', etc.) */
-body.start a[href="#start"],
-body.jazz-klubben a[href="#jazz-klubben"],
-body.metal-klubben a[href="#metal-klubben"] {
-  color: #e63946;
   font-weight: 600;
-}
-
-body.start a[href="#start"]::after,
-body.jazz-klubben a[href="#jazz-klubben"]::after,
-body.metal-klubben a[href="#metal-klubben"]::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #e63946;
-  border-radius: 2px;
-  transform-origin: left;
-  transform: scaleX(1);
-  transition: transform 0.3s ease;
-}
-
-header nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #e63946;
-  border-radius: 2px;
-  transform-origin: left;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-header nav a:hover::after {
-  transform: scaleX(1);
-}
-
-/* Main layout */
-main {
-  margin-top: 2rem;
-}
-
-/* Optional: subtle page transition effect */
-main {
-  opacity: 0;
-  animation: fadeIn 0.3s forwards ease-in-out;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* Event details & booking styles */
-.event-details {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1rem;
-  color: #f2f2f2;
-}
-
-.event-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-/* Desktop: two-column layout with event info left and booking right */
-@media (min-width: 900px) {
-  .event-layout {
-    grid-template-columns: 1fr 380px;
-  }
-}
-
-.event-hero img, .event-hero-img {
-  width: 100%;
-  height: clamp(220px, 40vh, 420px);
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-.event-info {
-  margin-top: 1rem;
-}
-
-.event-info h2 {
-  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
-  margin: 0 0 0.5rem 0;
-  color: #f2f2f2;
-  line-height: 1.05;
-}
-
-.event-info .club-name {
-  color: #e63946;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-
-.event-info p,
-.event-info .meta {
-  color: #d1d1d1;
-  margin: 0 0 1rem 0;
-}
-
-/* Booking form */
-.booking-form {
-  background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
-  padding: 1.25rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 26px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.04);
-}
-
-.booking-form h3 {
-  margin: 0 0 1rem 0;
-  color: #f2f2f2;
-  font-size: 1.1rem;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-
-@media (min-width: 900px) {
-  .form-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.booking-form label {
-  display: block;
-  font-size: 0.9rem;
-  color: #e6e6e6;
-  margin-bottom: 0.35rem;
-}
-
-.booking-form input,
-.booking-form select,
-.booking-form textarea {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: #ffffff;
-  color: #111;
-  font-size: 0.95rem;
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.03);
-  transition: box-shadow 0.15s ease, transform 0.12s ease, border-color 0.12s ease;
-}
-
-.booking-form input:focus,
-.booking-form select:focus,
-.booking-form textarea:focus {
-  outline: none;
-  border-color: rgba(230,57,70,0.95);
-  box-shadow: 0 0 0 4px rgba(230,57,70,0.12);
-}
-
-.booking-form .full {
-  grid-column: 1 / -1;
-}
-
-.booking-form .error {
-  border-color: #e63946 !important;
-  box-shadow: 0 0 0 4px rgba(230,57,70,0.12) !important;
-}
-
-.booking-form .actions {
-  margin-top: 0.75rem;
-  display:flex;
-  gap:0.75rem;
-  align-items:center;
-}
-
-.booking-form button {
-  background: #e63946;
   color: #fff;
-  border: none;
-  padding: 0.7rem 1rem;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
-}
-
-.booking-form button:hover {
-  background: #c22b37;
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 8px 20px rgba(198,43,55,0.16);
-}
-
-.booking-form button:active {
-  transform: translateY(0) scale(0.997);
-}
-
-.confirmation-message {
-  margin-top: 1rem;
-  padding: 0.75rem 1rem;
-  background: rgba(230,57,70,0.08);
-  color: #ffdede;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  border: 1px solid rgba(230,57,70,0.18);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.no-events {
-  color: #cfcfcf;
-  padding: 1rem 0;
+#toggle-member:hover {
+  background-color: #333;
+  border-color: #e63946;
+  transform: translateY(-1px);
 }
 
-/* Mobile tweaks */
-@media (max-width: 600px) {
-  .event-details { padding: 0.5rem; }
-  .booking-form { padding: 1rem; }
+#toggle-member:active {
+  transform: translateY(0);
+  background-color: #2a2a2a;
 }

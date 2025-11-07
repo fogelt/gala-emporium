@@ -3,6 +3,7 @@ import jazzClub from './pages/jazz-club.js';
 import metalClub from './pages/metal-club.js';
 import punkClub from './pages/punk-club.js';
 import eightyClub from './pages/80srock-club.js';
+import { showEventDetails, setupEventCardClicks } from './utils/event-info.js';
 import { setupSearch, filterAndRenderEvents } from './utils/search.js';
 import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js';
 
@@ -10,7 +11,7 @@ const menu = {
   "start": { label: 'Start', function: start },
   "jazz-klubben": { label: 'Jazz-klubben', function: jazzClub },
   "metal-klubben": { label: 'Metal-klubben', function: metalClub },
-  "80s-rock": { label: 'Rock-klubben', function: eightyClub },
+  "80s-rock-klubben": { label: 'Rock-klubben', function: eightyClub },
   "punk-klubben": { label: 'Punk-klubben', function: punkClub }
 };
 
@@ -42,6 +43,7 @@ async function loadPageContent() {
   if (club !== 'start') {
     appendMemberButton(club);
   }
+  setupEventCardClicks();
 }
 
 loadPageContent();

@@ -113,14 +113,3 @@ body.jazz-klubben .event {
   z-index: 2;
   position: relative;
 }
-
-/* Mobilanpassning */
-@media (max-width: 600px) {
-  body.jazz-klubben {
-    padding: 1rem;
-  }
-
-  body.jazz-klubben h1 {
-    font-size: 1.6rem;
-  }
-}
