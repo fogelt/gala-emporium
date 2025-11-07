@@ -15,6 +15,12 @@
       "name": "Punk-klubben",
       "description": "punk punk"
     }
+    ,
+    {
+      "id": "e80s",
+      "name": "80's Rock-klubben",
+      "description": "Nostalgisk 80-talsrock med coverband, synths och stora gitarriff."
+    }
   ],
   "events": [
     {
@@ -47,6 +53,31 @@
       "name": "Punk-rockarna Ramones",
       "description": "Cool punk med massa dans",
       "clubId": "f78d"
+    }
+    ,
+    {
+      "id": "e801",
+      "date": "2025-11-20 20:00",
+      "name": "80's Classic Night",
+      "description": "Spela klassiska 80-tals hits med liveband!",
+      "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&q=80",
+      "clubId": "e80s"
+    },
+    {
+      "id": "e802",
+      "date": "2025-12-05 20:00",
+      "name": "Rock Covers",
+      "description": "Lokala band spelar dina favoritlåtar från 80-talet.",
+      "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
+      "clubId": "e80s"
+    },
+    {
+      "id": "e803",
+      "date": "2025-12-18 21:00",
+      "name": "Glam Rock Party",
+      "description": "Färgglad glam rock och dans hela natten!",
+      "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
+      "clubId": "e80s"
     }
   ]
 }
