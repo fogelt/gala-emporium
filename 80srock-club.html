@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>80's Rock Club - Gala Emporium</title>
+  <link rel="stylesheet" href="css/pages/80srock-club.css">
+</head>
+<body>
+  <header>
+    <h1>🎸 80's Rock Club 🎸</h1>
+    <nav>
+      <a href="index.html">Hem</a>
+      <a href="#events">Evenemang</a>
+      <a href="#book">Boka biljetter</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="description">
+      <h2>Om klubben</h2>
+      <p>Välkommen till 80's Rock Club - där nostalgisk rock lever vidare! Vi erbjuder liveframträdanden med allt från klassiska hits till coverband som får dig att känna dig som på 80-talet igen.</p>
+      <img src="images/80s-band.jpg" alt="80-tals rockband på scen" />
+    </section>
+
+    <section id="events">
+      <h2>Kommande evenemang</h2>
+      <ul id="event-list">
+        <!-- Evenemang genereras här via JavaScript -->
+      </ul>
+    </section>
+
+    <section id="book">
+      <h2>Boka biljetter</h2>
+      <form id="booking-form">
+        <label for="name">Namn:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-post:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="event">Välj evenemang:</label>
+        <select id="event" name="event" required>
+          <!-- Evenemang-alternativ genereras via JavaScript -->
+        </select>
+
+        <button type="submit">Boka</button>
+      </form>
+      <p id="booking-confirmation"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Gala Emporium - 80's Rock Club</p>
+  </footer>
+
+  <script src="js/pages/80srock-club.js"></script>
+</body>
+</html>
