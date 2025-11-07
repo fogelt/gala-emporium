@@ -11,7 +11,7 @@ const menu = {
   "start": { label: 'Start', function: start },
   "jazz-klubben": { label: 'Jazz-klubben', function: jazzClub },
   "metal-klubben": { label: 'Metal-klubben', function: metalClub },
-  "80s-rock": { label: 'Rock-klubben', function: eightyClub },
+  "80s-rock-klubben": { label: 'Rock-klubben', function: eightyClub },
   "punk-klubben": { label: 'Punk-klubben', function: punkClub }
 };
 

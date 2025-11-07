@@ -4,6 +4,7 @@
 @import '../pages/jazz-club.css';
 @import '../pages/metal-club.css';
 @import '../pages/punk-club.css';
+@import '../pages/80srock-club.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* === Base Styles === */
@@ -89,7 +90,7 @@ header nav a:hover,
 body.start a[href="#start"],
 body.jazz-klubben a[href="#jazz-klubben"],
 body.punk-klubben a[href="#punk-klubben"],
-body.rock-klubben a[href="#80s-rock"],
+body.\38 0s-rock-klubben a[href="#80s-rock-klubben"],
 body.metal-klubben a[href="#metal-klubben"] {
   color: #e63946;
   font-weight: 600;
@@ -113,7 +114,7 @@ header nav a:hover::after,
 body.start a[href="#start"]::after,
 body.jazz-klubben a[href="#jazz-klubben"]::after,
 body.punk-klubben a[href="#punk-klubben"]::after,
-body.rock-klubben a[href="#80s-rock"]::after,
+body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
 body.metal-klubben a[href="#metal-klubben"]::after {
   transform: scaleX(1);
 }
@@ -146,6 +147,7 @@ body.metal-klubben a[href="#metal-klubben"]::after {
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .event-card:hover {
@@ -245,98 +247,34 @@ body.metal-klubben a[href="#metal-klubben"]::after {
   padding: 1.5rem;
 }
 
-/* === Booking Form === */
-.booking-form {
-  background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
-  padding: 1.25rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6);
-}
-
-.booking-form h3 {
-  margin: 0 0 1rem;
-  font-size: 1.1rem;
-  color: #f2f2f2;
-}
-
-.form-grid {
-  display: grid;
-  gap: 0.75rem;
-}
-
-@media (min-width: 900px) {
-  .form-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.booking-form label {
-  display: block;
-  font-size: 0.9rem;
-  color: #e6e6e6;
-  margin-bottom: 0.35rem;
-}
-
-.booking-form input,
-.booking-form select,
-.booking-form textarea {
+/* Event search bar */
+#eventSearch,
+.search-bar {
   width: 100%;
-  padding: 0.6rem 0.75rem;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  margin: 1rem auto 2rem;
+  display: block;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #fff;
-  color: #111;
-  font-size: 0.95rem;
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.03);
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.booking-form input:focus,
-.booking-form select:focus,
-.booking-form textarea:focus {
+#eventSearch::placeholder,
+.search-bar::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+#eventSearch:focus,
+.search-bar:focus {
   outline: none;
-  border-color: rgba(230, 57, 70, 0.95);
-  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.12);
-}
-
-.booking-form .full {
-  grid-column: 1 / -1;
-}
-
-.booking-form .actions {
-  margin-top: 0.75rem;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.booking-form button {
-  background: #e63946;
-  color: #fff;
-  border: none;
-  padding: 0.7rem 1rem;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.booking-form button:hover {
-  background: #c22b37;
-  transform: translateY(-2px);
-}
-
-.booking-form .error {
-  border-color: #e63946 !important;
-  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.12) !important;
-}
-
-.confirmation-message {
-  margin-top: 1rem;
-  padding: 0.75rem 1rem;
-  background: rgba(230, 57, 70, 0.08);
-  color: #ffdede;
-  border-radius: 8px;
-  border: 1px solid rgba(230, 57, 70, 0.18);
+  border-color: #e63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
 }
 
 /* === Misc === */
@@ -362,4 +300,31 @@ body.metal-klubben a[href="#metal-klubben"]::after {
   .booking-form {
     padding: 1rem;
   }
+}
+
+/* Membership toggle button */
+#toggle-member {
+  display: block;
+  margin: 0.5rem auto 2rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#toggle-member:hover {
+  background-color: #333;
+  border-color: #e63946;
+  transform: translateY(-1px);
+}
+
+#toggle-member:active {
+  transform: translateY(0);
+  background-color: #2a2a2a;
 }
