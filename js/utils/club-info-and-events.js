@@ -1,31 +1,4 @@
 export default async function clubInfoAndEvents(clubId) {
-  // Exempel på evenemang för startsidan
-  const demoEvents = [
-    {
-      id: 'nebula',
-      name: "Nebula Nights",
-      date: "21 november 2025",
-      club: "Electro Nebula",
-      description: "En kväll med elektronisk musik och visuella upplevelser",
-      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80"
-    },
-    {
-      id: 'midnight-jazz',
-      name: "Midnight Jazz Jam",
-      date: "28 november 2025",
-      club: "Jazz Atelier",
-      description: "Improviserad jazz med stadens bästa musiker",
-      image: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80"
-    },
-    {
-      id: 'comedy-carousel',
-      name: "Comedy Carousel",
-      date: "5 december 2025",
-      club: "Laugh Lounge",
-      description: "En kväll fylld med skratt och underhållning",
-      image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80"
-    }
-  ];
 
   let events = [];
   let name = '';
@@ -52,13 +25,9 @@ export default async function clubInfoAndEvents(clubId) {
       name = name || '';
       description = description || 'Kunde inte ladda klubbdata just nu.';
     }
-  } else {
-    // Om vi är på startsidan, visa demo-evenemangen
-    events = demoEvents;
   }
-  
+
   if (clubId) {
-    // Layout för klubbsidor med sökfält
     const html = `
       <h1>${name}</h1>
       <p>${description}</p>
@@ -66,8 +35,8 @@ export default async function clubInfoAndEvents(clubId) {
       <h2>Events</h2>
       <div id="eventsContainer">
         ${events && events.length > 0 ? [...events]
-          .sort((a, b) => new Date(a.date) - new Date(b.date))
-          .map(({ id, date, name, description }) => `
+        .sort((a, b) => new Date(a.date) - new Date(b.date))
+        .map(({ id, date, name, description }) => `
             <article class="event">
               <a href="#" data-event-id="${id}" class="event-link">
                 <h3>${name} ${date}</h3>
@@ -75,7 +44,7 @@ export default async function clubInfoAndEvents(clubId) {
               </a>
             </article>
           `)
-          .join('') : `<p class="no-events">Inga kommande evenemang för den här klubben.</p>`}
+        .join('') : `<p class="no-events">Inga kommande evenemang för den här klubben.</p>`}
       </div>
     `;
     return { html, events };
@@ -84,7 +53,7 @@ export default async function clubInfoAndEvents(clubId) {
     const html = `
       <section class="events-section">
         ${events.map(({ id, date, name, description, club, image }) => `
-          <article class="event-card" data-event='${encodeURIComponent(JSON.stringify({id, date, name, description, club, image}))}'>
+          <article class="event-card" data-event='${encodeURIComponent(JSON.stringify({ id, date, name, description, club, image }))}'>
             <img src="${image}" alt="${name}">
             <div class="event-card-content">
               <h3>${name}</h3>
