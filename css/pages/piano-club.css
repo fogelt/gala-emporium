@@ -1,4 +1,4 @@
-.content {
+body.piano-klubben .content {
   position: relative;
   height: auto;
   
@@ -14,14 +14,14 @@
 }
 
 
-body {
+body.piano-klubben body {
 
   margin: 0;
   padding: 0;
 
 }
 
-header {
+body.piano-klubben header {
   background-color: red;
   color: white;
   text-align: center;
@@ -29,7 +29,7 @@ header {
 
 }
 
-ul {
+body.piano-klubben ul {
   list-style-type: none;
   
   padding: 0;
@@ -39,12 +39,12 @@ ul {
   
 }
 
-ul li {
+body.piano-klubben ul li {
   display: inline-block;
   
 }
 
-ul li a {
+body.piano-klubben ul li a {
   display: block;
   /* Gör länken klickbar över hela ytan */
   color: white;
@@ -54,12 +54,12 @@ ul li a {
   /* Tar bort understrykning */
 }
 
-ul li a:hover {
+body.piano-klubben ul li a:hover {
   background-color: red;
   /* Ändrar bakgrundsfärg vid hover */
 }
 
-section {
+body.piano-klubben section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +69,7 @@ section {
   color: white;
 }
 
-footer {
+body.piano-klubben footer {
   background-color: red;
   color: white;
   text-align: center;
@@ -79,40 +79,3 @@ footer {
   width: auto;
 }
 
-.btn {
-  background-color: orange;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  /* Rundade hörn */
-  padding: 15px 40px;
-  text-align: center;
-  text-decoration: none;
-  /* Ingen understrykning */
-  font-size: 20px;
-  margin: 4px 2px;
-  cursor: pointer;
-  /* Förvandlar muspekaren till en hand */
-}
-
-.btn:hover {
-  background-color: darkorange;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  /* Lägger till skugga vid hover */
-  transform: translateY(-2px);
-  /* Liten rörelse uppåt vid hover */
-}
-
-label {
-  display: block;
-  /* gör så att fältet man fyller i hamnar under etiketten */
-  margin: 10px 0 5px;
-}
-
-.formstyle {
-  display: grid;
-  /* Lägger upp fälten i ett rutnät */
-  gap: 10px;
-  padding: 20px;
-
-}
