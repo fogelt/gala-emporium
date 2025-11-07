@@ -24,12 +24,12 @@ export default async function eventPage() {
   }
 
   if (!selected) {
-    return `<section class="event-details"><p class="no-events">Kunde inte hitta evenemanget.</p></section>`;
+    return { html: `<section class="event-details"><p class="no-events">Kunde inte hitta evenemanget.</p></section>`, events: [] };
   }
 
   // Build HTML for event details + booking form
   const { id, name, date, description, club, image } = selected;
-  return `
+  const html = `
     <section class="event-details">
       <div class="event-hero">
         <img src="${image || ''}" alt="${name}" class="event-hero-img">
@@ -73,4 +73,6 @@ export default async function eventPage() {
       </div>
     </section>
   `;
+  
+  return { html, events: [] };
 }

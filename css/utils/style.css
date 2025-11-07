@@ -265,7 +265,7 @@ main {
   }
 }
 
-.event-hero img {
+.event-hero img, .event-hero-img {
   width: 100%;
   height: clamp(220px, 40vh, 420px);
   object-fit: cover;
@@ -296,14 +296,6 @@ main {
 .event-info .meta {
   color: #d1d1d1;
   margin: 0 0 1rem 0;
-}
-
-.event-meta {
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-  color:#a8a8a8;
-  font-weight:500;
 }
 
 /* Booking form */
@@ -411,12 +403,6 @@ main {
 .no-events {
   color: #cfcfcf;
   padding: 1rem 0;
-}
-
-/* Accessibility: focus for keyboard nav on interactive items */
-a:focus, button:focus, .booking-form input:focus, .booking-form select:focus {
-  outline: 3px solid rgba(230,57,70,0.12);
-  outline-offset: 2px;
 }
 
 /* Mobile tweaks */

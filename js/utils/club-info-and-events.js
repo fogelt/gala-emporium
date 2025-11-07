@@ -58,26 +58,30 @@ export default async function clubInfoAndEvents(clubId) {
   }
   
   if (clubId) {
-    // Layout för klubbsidor
-    return `
+    // Layout för klubbsidor med sökfält
+    const html = `
       <h1>${name}</h1>
       <p>${description}</p>
+      <input type="text" id="eventSearch" placeholder="Sök efter event..." class="search-bar">
       <h2>Events</h2>
-      ${events && events.length > 0 ? [...events]
-        .sort((a, b) => new Date(a.date) - new Date(b.date))
-        .map(({ id, date, name, description }) => `
-          <article class="event">
-            <a href="#" data-event-id="${id}" class="event-link">
-              <h3>${name} ${date}</h3>
-              <p>${description}</p>
-            </a>
-          </article>
-        `)
-        .join('') : `<p class="no-events">Inga kommande evenemang för den här klubben.</p>`}
+      <div id="eventsContainer">
+        ${events && events.length > 0 ? [...events]
+          .sort((a, b) => new Date(a.date) - new Date(b.date))
+          .map(({ id, date, name, description }) => `
+            <article class="event">
+              <a href="#" data-event-id="${id}" class="event-link">
+                <h3>${name} ${date}</h3>
+                <p>${description}</p>
+              </a>
+            </article>
+          `)
+          .join('') : `<p class="no-events">Inga kommande evenemang för den här klubben.</p>`}
+      </div>
     `;
+    return { html, events };
   } else {
     // Layout för startsidan med de tre exemplen
-    return `
+    const html = `
       <section class="events-section">
         ${events.map(({ id, date, name, description, club, image }) => `
           <article class="event-card" data-event='${encodeURIComponent(JSON.stringify({id, date, name, description, club, image}))}'>
@@ -94,5 +98,6 @@ export default async function clubInfoAndEvents(clubId) {
         `).join('')}
       </section>
     `;
+    return { html, events: [] };
   }
 }
