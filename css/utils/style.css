@@ -204,47 +204,106 @@ body.metal-klubben a[href="#metal-klubben"]::after {
 .event-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 1rem;
+  overflow: hidden;
 }
 
 .modal-content {
-  background: #fff;
-  color: #222;
+  background: #1a1a1a;
+  color: #f2f2f2;
   border-radius: 1rem;
+  width: 100%;
   max-width: 700px;
-  width: 90%;
   max-height: 90vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   position: relative;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-.close-btn {
+.event-modal .close-btn {
   position: absolute;
   top: 0.75rem;
   right: 1rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
   background: none;
   border: none;
-  color: #444;
+  color: #f2f2f2;
   cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+
+.event-modal .close-btn:hover {
+  color: #e63946;
 }
 
 .event-image-large {
-  width: 100%;
-  height: auto;
-  max-height: 60vh;
-  object-fit: contain;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  width: calc(100% - 2rem);
+  margin: 1rem;
+  object-fit: cover;
+  max-height: 45vh;
+  border: 2px solid #000;
+  border-radius: 8px;
 }
 
 .event-details {
-  padding: 1.5rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  line-height: 1.3;
+}
+
+.event-details h2 {
+  margin: 0.25rem 0;
+  font-size: 1.5rem;
+}
+
+.event-details p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.event-details button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+.event-details button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.event-details button:hover {
+  background-color: #444;
+  border-color: #e63946;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.event-details button:active {
+  transform: translateY(0);
+  background-color: #2a2a2a;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Event search bar */

@@ -1,109 +1,80 @@
-/* ============================= */
-/* 🧷 Punk Club – Ljusgrå bakgrund & svarta texter */
-/* ============================= */
-
 body.punk-klubben {
   background-color: #dcdcdc;
-  /* ljusgrå/silver bakgrund */
   color: #000;
-  /* svart text */
   font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 2rem;
-  line-height: 1.6;
 }
 
-/* Rubriker */
-body.punk-klubben h1 {
-  color: #000;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
+body.punk-klubben h1,
 body.punk-klubben h2 {
-  color: #111;
-  text-align: center;
-  font-size: 1.8rem;
-  margin-top: 2rem;
+  color: #000;
 }
 
-/* Brödtext */
 body.punk-klubben p {
-  max-width: 700px;
-  margin: 0 auto 1.5rem auto;
-  text-align: center;
-  font-size: 1.1rem;
-  color: #000;
+  color: #111;
+  line-height: 1.4;
 }
 
-/* Eventkort */
-body.punk-klubben .event {
+body.punk-klubben header {
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+}
+
+body.punk-klubben header nav a {
+  color: #000;
+  font-weight: 600;
+}
+
+body.punk-klubben header nav a:hover {
+  color: #e63946;
+}
+
+body.punk-klubben .event-card {
   background-color: #ffeb3b;
-  /* gult kort – energiskt och punkigt */
-  color: #000;
-  /* svart text för kontrast */
-  border-left: 5px solid #000;
-  /* svart accentkant */
-  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 1.5rem;
-  margin: 1.5rem auto;
-  max-width: 700px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-body.punk-klubben .event:hover {
+body.punk-klubben .event-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Eventrubrik */
-body.punk-klubben .event h3 {
-  font-size: 1.4rem;
-  margin-top: 0;
+body.punk-klubben .event-card h3 {
   color: #000;
 }
 
-/* Header & Navigation */
-body.punk-klubben header {
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+body.punk-klubben .event-card p {
+  color: #222;
 }
 
-body.punk-klubben header nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 0;
+body.punk-klubben .event-modal {
+  background: rgba(0, 0, 0, 0.75);
 }
 
-body.punk-klubben header nav a {
-  text-decoration: none;
-  font-weight: 500;
+body.punk-klubben .modal-content {
+  background: #ffeb3b;
   color: #000;
-  font-size: 1.1rem;
-  position: relative;
-  padding-bottom: 4px;
+  border-radius: 12px;
 }
 
-body.punk-klubben header nav a:hover {
-  color: #333;
-  text-decoration: underline;
+body.punk-klubben .event-details button {
+  background-color: #000;
+  color: #ffeb3b;
+  border: 2px solid #000;
 }
 
-/* Fade-in effekt */
-body.punk-klubben main {
-  opacity: 0;
-  animation: fadeIn 0.4s forwards ease-in-out;
+body.punk-klubben .event-details button:hover {
+  background-color: #333;
+  color: #ffeb3b;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+body.punk-klubben #eventSearch,
+body.punk-klubben .search-bar {
+  background-color: #eee;
+  color: #000;
+  border-color: #000;
+}
+
+body.punk-klubben #eventSearch::placeholder,
+body.punk-klubben .search-bar::placeholder {
+  color: #666;
 }
