@@ -13,7 +13,12 @@
     {
       "id": "f78d",
       "name": "Punk-klubben",
-      "description": "Punk, DIY-känsla och hög energi varje helg."
+      "description": "punk punk"
+    },
+    {
+      "id": "e80s",
+      "name": "Rock-klubben",
+      "description": "En klubb för nostalgisk rock från 80-talet — coverband, synths och stora gitarriff."
     }
   ],
   "events": [
@@ -21,64 +26,57 @@
       "id": "jz01",
       "date": "2025-11-05 19:00",
       "name": "New Orleans-bandet",
-      "description": "Old school jazz med sväng och klarinett.",
-      "clubId": "a37c"
-    },
-    {
-      "id": "jz02",
-      "date": "2025-11-12 20:00",
-      "name": "Late Night Jazz Session",
-      "description": "Intim jam-session med lokala musiker.",
-      "clubId": "a37c"
-    },
-    {
-      "id": "jz03",
-      "date": "2025-11-20 18:30",
-      "name": "Modern Jazz Collective",
-      "description": "Nutida kompositioner och improvisationer i hög klass.",
+      "description": "New Orleans-bandet spelar old school jazz från 30-talet, med sväng och klarinett.",
+      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80",
       "clubId": "a37c"
     },
     {
       "id": "mt01",
       "date": "2025-11-06 21:00",
       "name": "Mega Death-die",
-      "description": "Open stage för death-metal-band. Hög volym, hög intensitet.",
+      "description": "En open stage för death-metal-rockare, 30 minuter per band, upp till 6 band per kväll. Stjäl inte varandras effektpedaler!",
+      "image": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80",
       "clubId": "fg5i"
     },
     {
-      "id": "mt02",
-      "date": "2025-11-12 20:00",
-      "name": "Thrash Night",
-      "description": "Kväll med snabb och aggressiv thrash från lokala och gästande band.",
-      "clubId": "fg5i"
-    },
-    {
-      "id": "mt03",
-      "date": "2025-11-22 19:30",
-      "name": "Black Metal Invasion",
-      "description": "Atmosfärisk black metal med ritualistiska inslag.",
-      "clubId": "fg5i"
+      "id": "43ac",
+      "date": "2025-11-01 19:00",
+      "name": "Fusion-jazzarna Corea's Disciples",
+      "description": "Cool fusion-jazz med en massa dim-ackord.",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
+      "clubId": "a37c"
     },
     {
       "id": "pk01",
       "date": "2025-11-01 19:00",
       "name": "Punk-rockarna Ramones",
-      "description": "Energisk punkkväll med dans och allsång.",
+      "description": "Cool punk med massa dans",
+      "image": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800&q=80",
       "clubId": "f78d"
     },
     {
-      "id": "pk02",
-      "date": "2025-11-18 20:00",
-      "name": "DIY Punk Showcase",
-      "description": "Lokala DIY-band, korta set och hög energi.",
-      "clubId": "f78d"
+      "id": "e801",
+      "date": "2025-11-20 20:00",
+      "name": "80's Classic Night",
+      "description": "Spela klassiska 80-tals hits med liveband!",
+      "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&q=80",
+      "clubId": "e80s"
     },
     {
-      "id": "pk03",
-      "date": "2025-11-25 21:00",
-      "name": "Anarkistisk Kväll",
-      "description": "Politisk punk och spontana gästspel från scenen.",
-      "clubId": "f78d"
+      "id": "e802",
+      "date": "2025-12-05 20:00",
+      "name": "Rock Covers",
+      "description": "Lokala band spelar dina favoritlåtar från 80-talet.",
+      "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
+      "clubId": "e80s"
+    },
+    {
+      "id": "e803",
+      "date": "2025-12-18 21:00",
+      "name": "Glam Rock Party",
+      "description": "Färgglad glam rock och dans hela natten!",
+      "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
+      "clubId": "e80s"
     }
   ]
 }

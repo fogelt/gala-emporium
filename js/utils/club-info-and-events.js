@@ -14,17 +14,20 @@ export default async function clubInfoAndEvents(clubId) {
   const html = `
     ${clubId ? `<h1>${name}</h1><p>${description}</p>` : ''}
     <input type="text" id="eventSearch" placeholder="Sök efter event..." class="search-bar">
-    <h2>Events</h2>
-    <div id="eventsContainer">
-      ${events
-      .toSorted((a, b) => a.date > b.date ? 1 : -1)
-      .map(ev => `
-          <article class="event">
-            <h3>${ev.name} ${ev.date}</h3>
-            <p>${ev.description}</p>
-          </article>
-        `)
-      .join('')}
+    <div id="eventsContainer" class="events-section">
+      ${events.map(({ id, date, name, description, club, image }) => `
+        <article class="event-card" data-event='${encodeURIComponent(JSON.stringify({ id, date, name, description, club, image }))}'>
+          ${image ? `<img src="${image}" alt="${name}">` : ''}
+          <div class="event-card-content">
+            <h3>${name}</h3>
+            <p>${description}</p>
+            <div class="event-meta">
+              <span class="event-date">${date}</span>
+              ${club ? `<span class="event-club">${club}</span>` : ''}
+            </div>
+          </div>
+        </article>
+      `).join('')}
     </div>
   `;
 
