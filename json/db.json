@@ -13,36 +13,71 @@
     {
       "id": "f78d",
       "name": "Punk-klubben",
-      "description": "punk punk"
+      "description": "Punk, DIY-känsla och hög energi varje helg."
     }
   ],
   "events": [
     {
-      "id": "43ac",
+      "id": "jz01",
       "date": "2025-11-05 19:00",
       "name": "New Orleans-bandet",
-      "description": "New Orleans-bandet spelar old school jazz från 30-talet, med sväng och klarinett.",
+      "description": "Old school jazz med sväng och klarinett.",
       "clubId": "a37c"
     },
     {
-      "id": "57f3",
+      "id": "jz02",
+      "date": "2025-11-12 20:00",
+      "name": "Late Night Jazz Session",
+      "description": "Intim jam-session med lokala musiker.",
+      "clubId": "a37c"
+    },
+    {
+      "id": "jz03",
+      "date": "2025-11-20 18:30",
+      "name": "Modern Jazz Collective",
+      "description": "Nutida kompositioner och improvisationer i hög klass.",
+      "clubId": "a37c"
+    },
+    {
+      "id": "mt01",
       "date": "2025-11-06 21:00",
       "name": "Mega Death-die",
-      "description": "En open stage för death-metal-rockare, 30 minuter per band, upp till 6 band per kväll. Stjäl inte varandras effektpedaler!",
+      "description": "Open stage för death-metal-band. Hög volym, hög intensitet.",
       "clubId": "fg5i"
     },
     {
-      "id": "43ac",
-      "date": "2025-11-01 19:00",
-      "name": "Fusion-jazzarna Corea's Disciples",
-      "description": "Cool fusion-jazz med en massa dim-ackord.",
-      "clubId": "a37c"
+      "id": "mt02",
+      "date": "2025-11-12 20:00",
+      "name": "Thrash Night",
+      "description": "Kväll med snabb och aggressiv thrash från lokala och gästande band.",
+      "clubId": "fg5i"
     },
     {
-      "id": "435c",
+      "id": "mt03",
+      "date": "2025-11-22 19:30",
+      "name": "Black Metal Invasion",
+      "description": "Atmosfärisk black metal med ritualistiska inslag.",
+      "clubId": "fg5i"
+    },
+    {
+      "id": "pk01",
       "date": "2025-11-01 19:00",
       "name": "Punk-rockarna Ramones",
-      "description": "Cool punk med massa dans",
+      "description": "Energisk punkkväll med dans och allsång.",
+      "clubId": "f78d"
+    },
+    {
+      "id": "pk02",
+      "date": "2025-11-18 20:00",
+      "name": "DIY Punk Showcase",
+      "description": "Lokala DIY-band, korta set och hög energi.",
+      "clubId": "f78d"
+    },
+    {
+      "id": "pk03",
+      "date": "2025-11-25 21:00",
+      "name": "Anarkistisk Kväll",
+      "description": "Politisk punk och spontana gästspel från scenen.",
       "clubId": "f78d"
     }
   ]
