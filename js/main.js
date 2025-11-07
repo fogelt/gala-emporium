@@ -14,7 +14,7 @@ const menu = {
   "start": { label: 'Start', function: start },
   "jazz-klubben": { label: 'Jazz-klubben', function: jazzClub },
   "metal-klubben": { label: 'Metal-klubben', function: metalClub },
-  "80s-rock": { label: "80's Rock", function: eightyClub },
+  "80s-rock": { label: "80's Rock", function: eightyClub, href: '80srock-club.html' },
   "punk-klubben": { label: 'Punk-klubben', function: punkClub }
 };
 
@@ -33,8 +33,8 @@ function createMenu() {
   // then map to create a-tags (links)
   // then join everything into one big string
   return Object.entries(menu)
-    .map(([urlHash, { label }]) => `
-      <a href="#${urlHash}">${label}</a>
+    .map(([urlHash, { label, href }]) => `
+      <a href="${href ? href : '#'+urlHash}">${label}</a>
     `)
     .join('');
 }
