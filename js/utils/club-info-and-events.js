@@ -1,4 +1,4 @@
-export default async function clubInfoAndEvents(clubId) {
+export default async function clubInfoAndEvents(clubId, extraHTML = '') {
   let name = '', description = '';
   let url = 'http://localhost:3000/events';
 
@@ -12,6 +12,7 @@ export default async function clubInfoAndEvents(clubId) {
   const events = await (await fetch(url)).json();
 
   const html = `
+    ${extraHTML}
     ${clubId ? `<h1>${name}</h1><p>${description}</p>` : ''}
     <input type="text" id="eventSearch" placeholder="Sök efter event..." class="search-bar">
     <div id="eventsContainer" class="events-section">
