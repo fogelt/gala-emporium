@@ -1,0 +1,118 @@
+.content {
+  position: relative;
+  height: auto;
+  
+  padding: 100px 20px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+body {
+
+  margin: 0;
+  padding: 0;
+
+}
+
+header {
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+
+}
+
+ul {
+  list-style-type: none;
+  
+  padding: 0;
+  margin: 0;
+  background-color: darkred;
+  overflow: hidden;
+  
+}
+
+ul li {
+  display: inline-block;
+  
+}
+
+ul li a {
+  display: block;
+  /* Gör länken klickbar över hela ytan */
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  /* Tar bort understrykning */
+}
+
+ul li a:hover {
+  background-color: red;
+  /* Ändrar bakgrundsfärg vid hover */
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+footer {
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: auto;
+}
+
+.btn {
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  /* Rundade hörn */
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  /* Ingen understrykning */
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  /* Förvandlar muspekaren till en hand */
+}
+
+.btn:hover {
+  background-color: darkorange;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  /* Lägger till skugga vid hover */
+  transform: translateY(-2px);
+  /* Liten rörelse uppåt vid hover */
+}
+
+label {
+  display: block;
+  /* gör så att fältet man fyller i hamnar under etiketten */
+  margin: 10px 0 5px;
+}
+
+.formstyle {
+  display: grid;
+  /* Lägger upp fälten i ett rutnät */
+  gap: 10px;
+  padding: 20px;
+
+}
