@@ -3,9 +3,9 @@ import jazzClub from './pages/jazz-club.js';
 import metalClub from './pages/metal-club.js';
 import punkClub from './pages/punk-club.js';
 import eightyClub from './pages/80srock-club.js';
+import pianoClub from './pages/piano-club.js';
 import { showEventDetails, setupEventCardClicks } from './utils/event-info.js';
 import { setupSearch, filterAndRenderEvents } from './utils/search.js';
-import pianoClub from './pages/piano-club.js';
 import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js';
 
 const menu = {
@@ -13,7 +13,8 @@ const menu = {
   "jazz-klubben": { label: 'Jazz-klubben', function: jazzClub },
   "metal-klubben": { label: 'Metal-klubben', function: metalClub },
   "80s-rock-klubben": { label: 'Rock-klubben', function: eightyClub },
-  "punk-klubben": { label: 'Punk-klubben', function: punkClub }
+  "punk-klubben": { label: 'Punk-klubben', function: punkClub },
+  "piano-klubben": { label: 'Piano-klubben', function: pianoClub }
 };
 
 function createMenu() {

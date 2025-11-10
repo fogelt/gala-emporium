@@ -22,7 +22,7 @@
     },
     {
       "id": "k92m",
-      "name": "Piano-klubben",
+      "name": "Piano klubben",
       "description": "Upplev pianomusik i världsklass från våra lokala pianister."
     }
   ],
@@ -97,6 +97,33 @@
       "description": "Färgglad glam rock och dans hela natten!",
       "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
       "clubId": "e80s",
+      "price": 250
+    },
+    {
+      "id": "pi808",
+      "date": "2025-12-20 21:00",
+      "name": "The Piano Man",
+      "description": "Mannen som gör magi med pianot",
+      "image": "https://vastmanlandsmusiken.se/wp-content/uploads/2023/03/roland_05_highres_foto_simon_larsson.jpg",
+      "clubId": "k92m",
+      "price": 250
+    },
+    {
+      "id": "pi809",
+      "date": "2025-12-21 19:00",
+      "name": "Pianofeber",
+      "description": "Ett energifyllt evenemang med flera pianister och genrer.",
+      "image": "https://st4.depositphotos.com/7916244/28359/v/1600/depositphotos_283598578-stock-illustration-piano-concert-and-music-festival.jpg",
+      "clubId": "k92m",
+      "price": 250
+    },
+    {
+      "id": "pi810",
+      "date": "2025-12-24 18:00",
+      "name": "MelodiMagi",
+      "description": "Ett mer lättsamt och inbjudande namn för en publik i alla åldrar.",
+      "image": "https://i.pinimg.com/736x/a4/fa/33/a4fa33f528206ae8cc8e7afe6f86dc6c.jpg",
+      "clubId": "k92m",
       "price": 250
     }
   ]
