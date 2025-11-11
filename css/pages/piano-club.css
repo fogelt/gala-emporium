@@ -1,12 +1,12 @@
 body.piano-klubben .content {
   position: relative;
   height: auto;
-  
+
   padding: 100px 20px;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  
+
   background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80');
   background-size: cover;
   background-position: center;
@@ -22,7 +22,7 @@ body.piano-klubben body {
 }
 
 body.piano-klubben header {
-  background-color: red;
+  background-color: rgba(108, 10, 10, 0.486);
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -31,17 +31,17 @@ body.piano-klubben header {
 
 body.piano-klubben ul {
   list-style-type: none;
-  
+
   padding: 0;
   margin: 0;
   background-color: darkred;
   overflow: hidden;
-  
+
 }
 
 body.piano-klubben ul li {
   display: inline-block;
-  
+
 }
 
 body.piano-klubben ul li a {
@@ -78,4 +78,3 @@ body.piano-klubben footer {
   bottom: 0;
   width: auto;
 }
-

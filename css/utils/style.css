@@ -62,7 +62,7 @@ header {
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 10;
 }
@@ -92,7 +92,8 @@ body.start a[href="#start"],
 body.jazz-klubben a[href="#jazz-klubben"],
 body.punk-klubben a[href="#punk-klubben"],
 body.\38 0s-rock-klubben a[href="#80s-rock-klubben"],
-body.metal-klubben a[href="#metal-klubben"] {
+body.metal-klubben a[href="#metal-klubben"],
+body.piano-klubben a[href="#piano-klubben"] {
   color: #e63946;
   font-weight: 600;
 }
