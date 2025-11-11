@@ -1,0 +1,85 @@
+body.piano-klubben .content {
+  position: relative;
+  height: auto;
+
+  padding: 100px 20px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+body.piano-klubben body {
+
+  margin: 0;
+  padding: 0;
+
+}
+
+body.piano-klubben header {
+  background-color: rgba(108, 10, 10, 0.486);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+
+}
+
+body.piano-klubben ul {
+  list-style-type: none;
+
+  padding: 0;
+  margin: 0;
+  background-color: darkred;
+  overflow: hidden;
+
+}
+
+body.piano-klubben ul li {
+  display: inline-block;
+
+}
+
+body.piano-klubben ul li a {
+  display: block;
+  /* Gör länken klickbar över hela ytan */
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  /* Tar bort understrykning */
+}
+
+body.piano-klubben ul li a:hover {
+  background-color: red;
+  /* Ändrar bakgrundsfärg vid hover */
+}
+
+body.piano-klubben section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+body.piano-klubben footer {
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: auto;
+}
+
+@media (max-width: 640px) {
+  body.piano-klubben header {
+    background-color: transparent;
+}}
