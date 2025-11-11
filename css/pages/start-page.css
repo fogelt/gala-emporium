@@ -1,12 +1,10 @@
-/* ============================= */
-/* 🌟 Start Page – Ljus & snygg design */
-/* ============================= */
+/* Start Page Stylesheet */
 
 body.start {
-  background-color: #f5f5f5;
-  /* ljus bakgrund */
+  background-color: #f1dfdf;
+  /* light background */
   color: #000;
-  /* svart text */
+  /* black text */
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 2rem;
@@ -17,13 +15,13 @@ body.start {
 /* Rubriker */
 body.start h1 {
   font-size: 2.5rem;
-  color: #000;
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
 body.start p {
   font-size: 1.1rem;
-  color: #333;
+  color: #363535;
   margin-bottom: 2rem;
 }
 

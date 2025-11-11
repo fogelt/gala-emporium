@@ -93,6 +93,33 @@
       "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
       "clubId": "e80s",
       "price": 250
+    },
+    {
+      "id": "sp01",
+      "date": "2025-11-15 20:00",
+      "name": "Gala Emporium Grand Opening",
+      "description": "Fira öppningen av Gala Emporium med livemusik, mat och dryck från alla våra klubbar!",
+      "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
+      "clubId": null,
+      "price": 299
+    },
+    {
+      "id": "sp02",
+      "date": "2025-11-30 18:00",
+      "name": "Musikens Mångfald",
+      "description": "En kväll där alla genrer möts - från jazz till metal. Upplev unika samarbeten mellan artister från olika klubbar.",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
+      "clubId": null,
+      "price": 129
+    },
+    {
+      "id": "sp03",
+      "date": "2025-12-31 21:00",
+      "name": "Nyårsafton Spectacular",
+      "description": "Ring in the new year med oss! Hela Gala Emporium öppnar för en episk nyårsafton med musik i alla lokaler.",
+      "image": "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&q=80",
+      "clubId": null,
+      "price": 500
     }
   ]
 }
