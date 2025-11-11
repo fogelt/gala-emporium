@@ -78,3 +78,8 @@ body.piano-klubben footer {
   bottom: 0;
   width: auto;
 }
+
+@media (max-width: 640px) {
+  body.piano-klubben header {
+    background-color: transparent;
+}}
