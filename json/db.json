@@ -105,6 +105,8 @@
       "name": "The Piano Man",
       "description": "Mannen som gör magi med pianot",
       "image": "https://vastmanlandsmusiken.se/wp-content/uploads/2023/03/roland_05_highres_foto_simon_larsson.jpg",
+      "alt": "The Piano Man",
+      "title": "The Piano Man",
       "clubId": "k92m",
       "price": 250
     },
@@ -114,6 +116,8 @@
       "name": "Pianofeber",
       "description": "Ett energifyllt evenemang med flera pianister och genrer.",
       "image": "https://st4.depositphotos.com/7916244/28359/v/1600/depositphotos_283598578-stock-illustration-piano-concert-and-music-festival.jpg",
+      "alt": "Pianofeber",
+      "title": "Pianofeber",
       "clubId": "k92m",
       "price": 250
     },
@@ -123,6 +127,8 @@
       "name": "MelodiMagi",
       "description": "Ett mer lättsamt och inbjudande namn för en publik i alla åldrar.",
       "image": "https://i.pinimg.com/736x/a4/fa/33/a4fa33f528206ae8cc8e7afe6f86dc6c.jpg",
+      "alt": "MelodiMagi",
+      "title": "MelodiMagi",
       "clubId": "k92m",
       "price": 250
     }
