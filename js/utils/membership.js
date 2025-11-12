@@ -1,4 +1,4 @@
-let userMemberships = []; //tom lista variabel för medlemskap
+let userMemberships = []; //tom lista variabel för medlemskap, vi har en tomlista för att du är inte medlem nånstans, när du går med i en klubb läggs klubbens namn till i listan
 
 export function updateMembershipDisplay(club) {
   const toggleBtn = document.querySelector('#toggle-member');
@@ -16,17 +16,17 @@ export function appendMemberButton(club) {
 
   toggleBtn.addEventListener('click', () => { //lyssna efter klick 
     if (userMemberships.includes(club)) { 
-      userMemberships = userMemberships.filter(c => c !== club); // om användaren är medlem, ta bort klubben från listan
+      userMemberships = userMemberships.filter(c => c !== club); // om användaren är medlem, ta bort klubben från listan 
     } else {
-      userMemberships.push(club); // om användaren inte är medlem, lägg till klubben i listan
+      userMemberships.push(club); // om användaren inte är medlem, lägg till klubben i listan 
     }
-    updateMembershipDisplay(club); //kallar på funktionen för att uppdatera knapptexten
+    updateMembershipDisplay(club); //kallar på funktionen för att uppdatera knapptexten efter ändring
   });
 
   updateMembershipDisplay(club);
 }
 
-export function eraseMemberButton() { // ta bort medlemsknappen
+export function eraseMemberButton() { // ta bort medlemsknappen om den finns
   document.querySelector('#member-text')?.remove();
   document.querySelector('#toggle-member')?.remove();
 }

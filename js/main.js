@@ -6,7 +6,7 @@ import eightyClub from './pages/80srock-club.js';
 import pianoClub from './pages/piano-club.js';
 import { showEventDetails, setupEventCardClicks } from './utils/event-info.js';
 import { setupSearch, filterAndRenderEvents } from './utils/search.js';
-import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js';
+import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js'; // importera alla funktioner vi behöver komma åt i main.js
 
 const menu = {
   "start": { label: 'Start', function: start },
@@ -17,7 +17,7 @@ const menu = {
   "piano-klubben": { label: 'Piano-klubben', function: pianoClub }
 };
 
-function createMenu() {
+function createMenu() { //här skapar vi menyn och sätter namn och url
   return Object.entries(menu)
     .map(([urlHash, { label }]) => `
       <a href="#${urlHash}">${label}</a>
@@ -27,26 +27,26 @@ function createMenu() {
 
 async function loadPageContent() {
   if (location.hash === '') { location.replace('#start'); }
+ //laddar inehåll baserat på hash
+  let club = location.hash.slice(1); //ta bort # club är nu t.ex. "start" istället för "#start"
+  document.body.setAttribute('class', club); // sätt body class för css
 
-  let club = location.hash.slice(1);
-  document.body.setAttribute('class', club);
-
-  const functionToRun = menu[club].function;
-  const { html, events } = await functionToRun();
+  const functionToRun = menu[club].function; // hämta rätt funktion från menyn
+  const { html, events } = await functionToRun(); //vänta på att funktionen ska köra klart
   document.querySelector('main').innerHTML = html;
 
   updateMembershipDisplay(club);
 
-  eraseMemberButton();
+  eraseMemberButton(); // vi tar alltid bort knappen först (membership.js)
   if (events?.length) {
     setupSearch(events);
   }
   if (club !== 'start') {
-    appendMemberButton(club);
+    appendMemberButton(club); //vi lägger till knappen om vi inte är på startsidan
   }
   setupEventCardClicks();
 }
 
-loadPageContent();
-window.onhashchange = loadPageContent;
+loadPageContent(); //ladda in första sidan
+window.onhashchange = loadPageContent; //ladda in ny sida när hash ändras
 document.querySelector('header nav').innerHTML = createMenu();

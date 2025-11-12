@@ -1,6 +1,6 @@
 export default async function clubInfoAndEvents(clubId, extraHTML = '') {
   let name = '', description = '';
-  let url = 'http://localhost:3000/events';
+  let url = 'http://localhost:3000/events'; // bas-url för att hämta events
 
   if (clubId) {
     const clubData = await (await fetch('http://localhost:3000/clubs/' + clubId)).json();

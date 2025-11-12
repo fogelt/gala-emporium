@@ -2,8 +2,8 @@ export function filterAndRenderEvents(events, searchTerm = '') {
   const term = searchTerm.toLowerCase().trim();
 
   const filtered = events.filter(ev =>
-    ev.name.toLowerCase().includes(term) ||
-    ev.date.toLowerCase().includes(term) ||
+    ev.name.toLowerCase().includes(term) || //filtrerar bort events som matchar sökordet
+    ev.date.toLowerCase().includes(term) || //filtrerar bort events som matchar sökordet
     (ev.description && ev.description.toLowerCase().includes(term)) ||
     (ev.club && ev.club.toLowerCase().includes(term))
   );
@@ -26,7 +26,7 @@ export function filterAndRenderEvents(events, searchTerm = '') {
     .join('');
 }
 
-export function setupSearch(events) {
+export function setupSearch(events) { // skapar en lyssnare på sökfältet
   const input = document.querySelector('#eventSearch');
   const container = document.querySelector('#eventsContainer');
   if (!input || !container) return;
