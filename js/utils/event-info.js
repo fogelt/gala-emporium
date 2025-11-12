@@ -30,7 +30,7 @@ export function setupEventCardClicks() {
   if (!container) return;
 
   container.addEventListener('click', e => {
-    const card = e.target.closest('.event-card');
+    const card = e.target.closest('#event-card-finished');
     if (!card) return;
 
     const eventData = JSON.parse(decodeURIComponent(card.dataset.event));

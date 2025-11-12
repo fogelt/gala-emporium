@@ -132,5 +132,13 @@
       "clubId": "k92m",
       "price": 250
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "1234",
+      "role": "admin"
+    }
   ]
 }

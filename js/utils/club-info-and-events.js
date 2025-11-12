@@ -11,13 +11,16 @@ export default async function clubInfoAndEvents(clubId, extraHTML = '') {
 
   const events = await (await fetch(url)).json();
 
+  const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser')); //Här kollar vi om någon är inloggad i(som vi sparat i sessionstorage)
+  const isAdmin = loggedInUser && loggedInUser.role === 'admin';
+
   const html = `
     ${extraHTML}
     ${clubId ? `<h1>${name}</h1><p>${description}</p>` : ''}
     <input type="text" id="eventSearch" placeholder="Sök efter event..." class="search-bar">
     <div id="eventsContainer" class="events-section">
       ${events.map(({ id, date, name, description, club, image, alt, price }) => `
-        <article class="event-card" data-event="${encodeURIComponent(JSON.stringify({ id, date, name, description, club, image, alt, price }))}">
+        <article class="event-card" id="event-card-finished" data-event="${encodeURIComponent(JSON.stringify({ id, date, name, description, club, image, alt, price }))}">
           ${image ? `<img src="${image}" alt="${alt || name}" title="${alt || name}">` : ''}
           <div class="event-card-content">
             <h3>${name}</h3>
@@ -29,6 +32,14 @@ export default async function clubInfoAndEvents(clubId, extraHTML = '') {
           </div>
         </article>
       `).join('')}
+
+      ${isAdmin ? `
+        <article class="event-card add-event-card" id="add-event-card">
+          <div class="event-card-content">
+            <h3>+ Lägg till nytt event</h3>
+          </div>
+        </article>
+      ` : ''}
     </div>
   `;
 
