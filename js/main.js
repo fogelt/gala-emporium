@@ -35,8 +35,7 @@ async function loadPageContent() {
   const { html, events } = await functionToRun();
   document.querySelector('main').innerHTML = html;
 
-
-  updateMembershipDisplay(club); // Här lägger vi till globala moduler (håll logiken i sitt egna script)
+  updateMembershipDisplay(club);
 
   eraseMemberButton();
   if (events?.length) {

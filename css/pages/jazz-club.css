@@ -1,115 +1,77 @@
-/* ============================= */
-/* 🎷 Jazz Club – Mörkare röd bakgrund med blinkande stjärnor */
-/* ============================= */
-
 body.jazz-klubben {
   margin: 0;
   min-height: 100vh;
   color: #f7f3f0;
-  background: linear-gradient(180deg, #2a0000 0%, #110101 100%);
   font-family: Arial, sans-serif;
   position: relative;
   overflow: auto;
-  /* ändrat så sidan kan scrollas */
+  /* tillåt scroll */
+  background: linear-gradient(180deg, #2a0000 0%, #110101 100%);
 }
 
-/* Stjärnor (enkelt lager) */
+/* Stjärnfält (långsam drift) */
 body.jazz-klubben::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.9) 1px, transparent 2px),
-    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.85) 1px, transparent 2px),
-    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8) 1px, transparent 2px),
-    radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.9) 1px, transparent 2px),
-    radial-gradient(circle at 85% 60%, rgba(255, 255, 255, 0.8) 1px, transparent 2px);
-  background-repeat: repeat;
-  background-size: 800px 600px;
-  opacity: 0.9;
-  animation: starsMove 30s linear infinite;
-  mix-blend-mode: screen;
+  z-index: 0;
   pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 230, 100, 0.95) 1px, transparent 3px),
+    radial-gradient(circle at 30% 60%, rgba(255, 230, 100, 0.9) 1px, transparent 3px),
+    radial-gradient(circle at 55% 35%, rgba(255, 230, 100, 0.85) 1px, transparent 3px),
+    radial-gradient(circle at 80% 70%, rgba(255, 230, 100, 0.9) 1px, transparent 3px);
+  background-size: 900px 600px;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: stars-drift 40s linear infinite;
 }
 
-/* Snabbare blink / twinkle */
+/* Snabbare blinklager för twinkle */
 body.jazz-klubben::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.12), transparent 10%),
-    radial-gradient(circle at 75% 75%, rgba(255, 60, 120, 0.04), transparent 15%);
-  opacity: 0.6;
-  animation: twinkle 3.5s ease-in-out infinite;
-  mix-blend-mode: screen;
+  z-index: 1;
   pointer-events: none;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 240, 180, 0.18) 2px, transparent 8px),
+    radial-gradient(circle at 65% 60%, rgba(255, 240, 180, 0.16) 2px, transparent 8px);
+  background-size: 600px 400px;
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  animation: stars-twinkle 3.5s ease-in-out infinite;
 }
 
-/* Diskret fest-glow */
-body.jazz-klubben .space-glow {
-  position: absolute;
-  inset: -20% -20% auto -20%;
-  height: 140%;
-  background: radial-gradient(40% 40% at 20% 30%, rgba(255, 60, 120, 0.06), transparent),
-    radial-gradient(30% 30% at 80% 70%, rgba(60, 120, 255, 0.05), transparent);
-  mix-blend-mode: screen;
-  animation: glowShift 20s linear infinite;
-  pointer-events: none;
-}
-
-/* Enkla event-kort */
+/* Se till att innehållet ligger ovanför effekterna */
+body.jazz-klubben header,
+body.jazz-klubben main,
 body.jazz-klubben .event {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 10px;
-  padding: 1rem;
-  margin: 1rem auto;
-  max-width: 700px;
-  color: #fff;
   position: relative;
   z-index: 2;
 }
 
 /* Animationer */
-@keyframes starsMove {
+@keyframes stars-drift {
   from {
     transform: translate(0, 0);
   }
 
   to {
-    transform: translate(-120px, -40px);
+    transform: translate(-140px, -40px);
   }
 }
 
-@keyframes twinkle {
+@keyframes stars-twinkle {
 
   0%,
   100% {
     opacity: 0.5;
+    transform: scale(1);
   }
 
   50% {
-    opacity: 0.95;
+    opacity: 1;
+    transform: scale(1.06);
   }
-}
-
-@keyframes glowShift {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  50% {
-    transform: translate(6%, -4%) rotate(1deg);
-  }
-
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-}
-
-/* Gör text och kort överst på bakgrunden */
-body.jazz-klubben header,
-body.jazz-klubben main,
-body.jazz-klubben .event {
-  z-index: 2;
-  position: relative;
 }

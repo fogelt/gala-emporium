@@ -1,80 +1,53 @@
 body.punk-klubben {
-  background-color: #dcdcdc;
-  color: #000;
-  font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow: auto;
 }
 
-body.punk-klubben h1,
-body.punk-klubben h2 {
-  color: #000;
+/* Enkelt stjärnlager med blå "twinkle" */
+body.punk-klubben::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(150, 200, 255, 0.95) 1px, transparent 3px),
+    radial-gradient(circle at 30% 60%, rgba(160, 210, 255, 0.9) 1px, transparent 3px),
+    radial-gradient(circle at 55% 35%, rgba(140, 190, 255, 0.9) 1px, transparent 3px),
+    radial-gradient(circle at 80% 70%, rgba(170, 220, 255, 0.85) 1px, transparent 3px);
+  background-size: 800px 600px;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: stars-drift 30s linear infinite, stars-twinkle 3s ease-in-out infinite;
 }
 
-body.punk-klubben p {
-  color: #111;
-  line-height: 1.4;
+/* Se till att innehållet ligger ovanför stjärnorna */
+body.punk-klubben header,
+body.punk-klubben main,
+body.punk-klubben .event {
+  position: relative;
+  z-index: 1;
 }
 
-body.punk-klubben header {
-  background-color: #fff;
-  border-bottom: 1px solid #000;
+/* Animationer */
+@keyframes stars-drift {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-120px, -40px);
+  }
 }
 
-body.punk-klubben header nav a {
-  color: #000;
-  font-weight: 600;
-}
+@keyframes stars-twinkle {
 
-body.punk-klubben header nav a:hover {
-  color: #e63946;
-}
+  0%,
+  100% {
+    opacity: 0.7;
+  }
 
-body.punk-klubben .event-card {
-  background-color: #ffeb3b;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-body.punk-klubben .event-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-body.punk-klubben .event-card h3 {
-  color: #000;
-}
-
-body.punk-klubben .event-card p {
-  color: #222;
-}
-
-body.punk-klubben .event-modal {
-  background: rgba(0, 0, 0, 0.75);
-}
-
-body.punk-klubben .modal-content {
-  background: #ffeb3b;
-  color: #000;
-  border-radius: 12px;
-}
-
-body.punk-klubben .event-details button {
-  background-color: #000;
-  color: #ffeb3b;
-  border: 2px solid #000;
-}
-
-body.punk-klubben .event-details button:hover {
-  background-color: #333;
-  color: #ffeb3b;
-}
-
-body.punk-klubben #eventSearch,
-body.punk-klubben .search-bar {
-  background-color: #eee;
-  color: #000;
-  border-color: #000;
-}
-
-body.punk-klubben #eventSearch::placeholder,
-body.punk-klubben .search-bar::placeholder {
-  color: #666;
+  50% {
+    opacity: 1;
+  }
 }

@@ -1,109 +1,57 @@
-/* ============================= */
-/* 💎 Metal Club – Shiny Blue bakgrund & svart text */
-/* ============================= */
-
+/* Enkel bakgrund med blinkande vita stjärnor för Metal‑klubben */
 body.metal-klubben {
-  background-color: #6a5acd;
-  /* shiny blå/lila ton (liknar "SlateBlue") */
-  color: #000;
-  /* svart text */
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 2rem;
-  line-height: 1.6;
-}
-
-/* Rubriker */
-body.metal-klubben h1 {
-  color: #000;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-body.metal-klubben h2 {
-  color: #111;
-  text-align: center;
-  font-size: 1.8rem;
-  margin-top: 2rem;
-}
-
-/* Brödtext */
-body.metal-klubben p {
-  max-width: 700px;
-  margin: 0 auto 1.5rem auto;
-  text-align: center;
-  font-size: 1.1rem;
-  color: #000;
-}
-
-/* Eventkort */
-body.metal-klubben .event {
-  background-color: #fff;
-  /* vit bakgrund för kontrast */
-  color: #000;
-  /* svart text i korten */
-  border-left: 5px solid #000;
-  /* svart accentkant */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 1.5rem;
-  margin: 1.5rem auto;
-  max-width: 700px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-body.metal-klubben .event:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Eventrubrik */
-body.metal-klubben .event h3 {
-  font-size: 1.4rem;
-  margin-top: 0;
-  color: #000;
-}
-
-/* Header & Navigation */
-body.metal-klubben header {
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-body.metal-klubben header nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 0;
-}
-
-body.metal-klubben header nav a {
-  text-decoration: none;
-  font-weight: 500;
-  color: #000;
-  font-size: 1.1rem;
   position: relative;
-  padding-bottom: 4px;
+  overflow: auto;
 }
 
-body.metal-klubben header nav a:hover {
-  color: #333;
-  text-decoration: underline;
+/* Stjärnor + blink */
+body.metal-klubben::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.95) 1px, transparent 3px),
+    radial-gradient(circle at 28% 60%, rgba(255, 255, 255, 0.9) 1px, transparent 3px),
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.85) 1px, transparent 3px),
+    radial-gradient(circle at 72% 70%, rgba(255, 255, 255, 0.9) 1px, transparent 3px),
+    radial-gradient(circle at 88% 40%, rgba(255, 255, 255, 0.8) 1px, transparent 3px);
+  background-size: 800px 600px;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: stars-drift 30s linear infinite, stars-twinkle 3s ease-in-out infinite;
 }
 
-/* Fade-in effekt */
-body.metal-klubben main {
-  opacity: 0;
-  animation: fadeIn 0.4s forwards ease-in-out;
+/* Innehåll över effekten */
+body.metal-klubben header,
+body.metal-klubben main,
+body.metal-klubben .event {
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes fadeIn {
+/* Animationer */
+@keyframes stars-drift {
+  from {
+    transform: translate(0, 0);
+  }
+
   to {
+    transform: translate(-120px, -40px);
+  }
+}
+
+@keyframes stars-twinkle {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
     opacity: 1;
+    transform: scale(1.06);
   }
 }
