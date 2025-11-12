@@ -92,10 +92,6 @@ function createNewClub() { //Vi gör klubbar på samma sätt
           Beskrivning:
           <textarea name="description" placeholder="Kort beskrivning av klubben" required></textarea>
         </label>
-        <label>
-          Klubb ID:
-          <input type="text" name="clubId" placeholder="Ex: a78n" required>
-        </label>
         <button type="submit">Spara klubb</button>
       </form>
     </div>
@@ -111,8 +107,7 @@ function createNewClub() { //Vi gör klubbar på samma sätt
     const formData = new FormData(e.target); //Gör om inputs till ett objekt
     const newClub = {
       name: formData.get('name'),
-      description: formData.get('description'), //Ta objektets properties
-      clubId: formData.get('clubId')
+      description: formData.get('description') //Ta objektets properties
     };
 
     const res = await fetch('http://localhost:3000/clubs', {
