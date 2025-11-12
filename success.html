@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f6f9fc;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .qr-code {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🎉 Payment Successful!</h1>
+    <p>Thank you for your purchase. Your payment has been confirmed.</p>
+
+    <div class="qr-code">
+      <img id="mockQr" alt="Mock QR Code" />
+    </div>
+
+    <p>Scan this QR code to view your digital receipt.</p>
+  </div>
+
+  <script>
+    const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=MockReceipt123';
+    document.getElementById('mockQr').src = qrUrl;
+  </script>
+</body>
+
+</html>
