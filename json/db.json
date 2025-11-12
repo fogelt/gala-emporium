@@ -13,7 +13,7 @@
     {
       "id": "f78d",
       "name": "Punk-klubben",
-      "description": "punk punk"
+      "description": "Välkommen till 80 talets Punk klubb"
     },
     {
       "id": "e80s",
@@ -73,31 +73,31 @@
       "price": 150
     },
     {
-      "id": "e801",
-      "date": "2025-11-20 20:00",
-      "name": "80's Classic Night",
-      "description": "Spela klassiska 80-tals hits med liveband!",
-      "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800&q=80",
+      "id": "e804",
+      "date": "2025-11-15 20:30",
+      "name": "Iron Maiden – The 80s Collection",
+      "description": "Legendär brittisk heavy metal från 80-talet. Eddie och hans gäng tar oss genom klassiker som 'Run to the Hills' och 'The Number of the Beast'.",
+      "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
       "clubId": "e80s",
-      "price": 220
+      "price": 280
     },
     {
-      "id": "e802",
-      "date": "2025-12-05 20:00",
-      "name": "Rock Covers",
-      "description": "Lokala band spelar dina favoritlåtar från 80-talet.",
-      "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
+      "id": "e805",
+      "date": "2025-12-01 19:00",
+      "name": "Def Leppard Experience",
+      "description": "Trigga en av 80-talets mest ikoniska rockband! 'Pour Some Sugar on Me' och många fler hitar från 'Hysteria'.",
+      "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
       "clubId": "e80s",
-      "price": 200
+      "price": 270
     },
     {
-      "id": "e803",
-      "date": "2025-12-18 21:00",
-      "name": "Glam Rock Party",
-      "description": "Färgglad glam rock och dans hela natten!",
-      "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
+      "id": "e806",
+      "date": "2025-12-10 20:00",
+      "name": "Synth Wave Night",
+      "description": "Neon, syntar och elektroniska vibrationer möter rock. Från Duran Duran till The Human League — perfekt för 80-tals fans.",
+      "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
       "clubId": "e80s",
-      "price": 250
+      "price": 230
     },
     {
       "id": "pi808",

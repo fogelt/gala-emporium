@@ -1,11 +1,5 @@
 /* === Imports === */
 @import './utils/setup-box-sizing.css';
-@import '../pages/start-page.css';
-@import '../pages/jazz-club.css';
-@import '../pages/metal-club.css';
-@import '../pages/punk-club.css';
-@import '../pages/piano-club.css';
-@import '../pages/80srock-club.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* === Base Styles === */
