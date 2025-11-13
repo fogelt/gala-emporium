@@ -135,3 +135,19 @@ async function deleteEvent(eventId) { //Ta bort event som matchar det passade ID
 async function deleteClub(clubId) { //Ta bort klubb som matchar det passade IDt
   await fetch(`http://localhost:3000/clubs/${clubId}`, { method: 'DELETE' });
 }
+
+export async function buildAdminClubList() { // Enkel lista över alla klubbar för admins
+  const res = await fetch('http://localhost:3000/clubs'); // Hämta alla klubbar
+  const clubs = await res.json();
+
+  if (!clubs?.length) return '';
+
+  return `
+    <aside id="admin-club-list-container">
+      <h4>Alla Club IDs</h4>
+      <ul>
+        ${clubs.map(c => `<li>${c.id} ${c.name}</li>`).join('')}
+      </ul>
+    </aside>
+  `;
+}

@@ -1,4 +1,5 @@
 import start from './pages/start.js';
+import { buildAdminClubList } from './utils/admin-functions.js';
 import { loadClub } from './pages/router.js';
 import { setupAdminClicks } from './utils/admin-functions.js';
 import { appendLoginButton } from './utils/admin-login.js';
@@ -27,9 +28,9 @@ async function createMenu() {
     ...clubs.map(club => `
       <span class="club-item">
         <a href="#${club.id}">${club.name}</a>
-        ${isAdmin ? `<button id="delete-club-btn" data-id="${club.id}" title="Ta bort klubb">×</button>` : ''}
+        ${isAdmin ? `<button id="delete-club-btn" data-id="${club.id}" title="Ta bort klubb">x</button>` : ''}
       </span>
-    `) //medans vi loopar så gör vi en delete knapp för varje klubb om man är admin också
+    `) //medans vi loopar så gör vi en delete knapp för varje klubb om man är admin
   ].join(''); // Sedan lägger vi ihop alla strängar till en enda HTML-sträng
 
   const adminButton = isAdmin
@@ -40,6 +41,9 @@ async function createMenu() {
 }
 
 async function loadPageContent() {
+  const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+  const isAdmin = loggedInUser?.role === 'admin'; // Kolla om admin
+
   document.querySelector('header nav').innerHTML = await createMenu();
 
   if (location.hash === '') location.replace('#start'); //Om hashen är tom gör vi om den till #start
@@ -47,7 +51,7 @@ async function loadPageContent() {
   const clubId = location.hash.slice(1); //cludId sparas här som T.ex. start istället för #start
   document.body.setAttribute('class', clubId);
 
-  let pageFunction; //Tom variabel
+  let pageFunction;
   if (staticPages[clubId]) {
     pageFunction = staticPages[clubId].function; //Om vi är på en static page
   } else {
@@ -56,6 +60,10 @@ async function loadPageContent() {
 
   const { html, events } = await pageFunction();
   document.querySelector('main').innerHTML = html;
+
+  if (isAdmin) {
+    document.querySelector('main').innerHTML += await buildAdminClubList(); //Lägg till id lista om admin
+  }
 
   updateMembershipDisplay(clubId); //Uppdatera medlemsknappen beroende på vilken hash vi står på T.ex. Jazz-klubben
   appendLoginButton(); //Här lägger vi till inloggningsknappen
@@ -66,9 +74,9 @@ async function loadPageContent() {
 }
 
 setupAdminClicks(); //Koppla samman admin clicks
-loadPageContent();
-window.onhashchange = loadPageContent; //Ladda sidan varje gång hash förändras
+await loadPageContent();
+window.onhashchange = await loadPageContent; //Ladda sidan varje gång hash förändras
 
-document.addEventListener('loginStatusChanged', () => { //Här lyssnar vi efter om login status har förändrats i admin-login.js
-  loadPageContent();
+document.addEventListener('loginStatusChanged', async () => { //Här lyssnar vi efter om login status har förändrats i admin-login.js
+  await loadPageContent();
 });
