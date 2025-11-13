@@ -74,6 +74,7 @@ main {
 
 /* === Event Card === */
 .event-card {
+  position: relative;
   background: #1a1a1a;
   border-radius: 16px;
   overflow: hidden;
@@ -526,4 +527,43 @@ body.metal-klubben a[href="#metal-klubben"]::after {
 #add-club-nav-btn:active {
   background-color: #2a2a2a;
   transform: translateY(0);
+}
+
+#delete-event-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+#delete-event-btn:hover {
+  background: #e63946;
+}
+
+#delete-club-btn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 18px;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  transition: background 0.2s ease;
+}
+
+#delete-club-btn:hover {
+  background: #e63946;
 }

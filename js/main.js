@@ -23,7 +23,13 @@ async function createMenu() {
     // "..." tar alla värden i arrayen och lägger in dem här istället för att skapa en array inuti en array
     // T.ex. [1, 2] och [3, 4] blir [...[1,2], ...[3,4]] > [1,2,3,4]
     ...Object.entries(staticPages).map(([urlHash, { label }]) => `<a href="#${urlHash}">${label}</a>`),
-    ...clubs.map(club => `<a href="#${club.id}">${club.name}</a>`)
+    // Lägg till alla klubbar i menyn
+    ...clubs.map(club => `
+      <span class="club-item">
+        <a href="#${club.id}">${club.name}</a>
+        ${isAdmin ? `<button id="delete-club-btn" data-id="${club.id}" title="Ta bort klubb">×</button>` : ''}
+      </span>
+    `) //medans vi loopar så gör vi en delete knapp för varje klubb om man är admin också
   ].join(''); // Sedan lägger vi ihop alla strängar till en enda HTML-sträng
 
   const adminButton = isAdmin
