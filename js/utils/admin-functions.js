@@ -1,11 +1,18 @@
 export function setupAdminClicks() {
   document.addEventListener('click', (event) => {
-    if (event.target.closest('#add-event-card')) {
-      createNewEvent();
+    if (event.target.closest('#add-event-card')) createNewEvent();
+    if (event.target.closest('#add-club-nav-btn')) createNewClub(); //Koppla alla knappar
+
+    const deleteEventBtn = event.target.closest('#delete-event-btn');
+    if (deleteEventBtn) {
+      const eventId = deleteEventBtn.dataset.id; //Här behöver vi ta dataset.id från knappen vi tryckt på för att veta vilket event som ska raderas
+      deleteEvent(eventId);
     }
 
-    if (event.target.closest('#add-club-nav-btn')) {
-      createNewClub();
+    const deleteClubBtn = event.target.closest('#delete-club-btn');
+    if (deleteClubBtn) {
+      const clubId = deleteClubBtn.dataset.id;
+      deleteClub(clubId);
     }
   });
 }
@@ -121,3 +128,26 @@ function createNewClub() { //Vi gör klubbar på samma sätt
   });
 }
 
+async function deleteEvent(eventId) { //Ta bort event som matchar det passade IDt
+  await fetch(`http://localhost:3000/events/${eventId}`, { method: 'DELETE' });
+}
+
+async function deleteClub(clubId) { //Ta bort klubb som matchar det passade IDt
+  await fetch(`http://localhost:3000/clubs/${clubId}`, { method: 'DELETE' });
+}
+
+export async function buildAdminClubList() { // Enkel lista över alla klubbar för admins
+  const res = await fetch('http://localhost:3000/clubs'); // Hämta alla klubbar
+  const clubs = await res.json();
+
+  if (!clubs?.length) return '';
+
+  return `
+    <aside id="admin-club-list-container">
+      <h4>Alla Club IDs</h4>
+      <ul>
+        ${clubs.map(c => `<li>${c.id} ${c.name}</li>`).join('')}
+      </ul>
+    </aside>
+  `;
+}
