@@ -1,4 +1,19 @@
+/* Samtliga i gruppen har bidragit till style.css, vi har gjort individuella .css filer
+som komplementation:
+- jazz-klubben : Ihab
+- metal-klubben : Hassan
+- piano-klubben : Semir
+- punk-klubben : Edvin
+- rock-klubben : Simon
+/*
+
+
 /* === Imports === */
+@import '../pages/jazz-klubben.css';
+@import '../pages/metal-klubben.css';
+@import '../pages/piano-klubben.css';
+@import '../pages/punk-klubben.css';
+@import '../pages/rock-klubben.css';
 @import './utils/setup-box-sizing.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 

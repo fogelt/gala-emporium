@@ -1,0 +1,93 @@
+.f78d {
+  --punk-accent: rgb(212, 255, 0);
+  --punk-bg: #0f0f0f;
+  --punk-card-bg: #181818;
+  --punk-border: 2px dashed rgba(212, 255, 0, 0.45);
+
+  background: var(--punk-bg);
+  color: #e5e5e5;
+
+  background-image:
+    repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.02) 0 4px,
+      transparent 4px 8px);
+}
+
+.f78d h1,
+.f78d h2,
+.f78d h3 {
+  color: var(--punk-accent);
+  text-shadow: 0 0 8px rgba(212, 255, 0, 0.35);
+  letter-spacing: -0.015em;
+}
+
+.f78d p {
+  color: rgb(212, 255, 0);
+  font-weight: 500;
+}
+
+.f78d .event-card {
+  background: var(--punk-card-bg);
+  border: var(--punk-border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.f78d .event-card:hover {
+  transform: translateY(-6px) skewX(-1deg);
+  box-shadow: 0 8px 18px rgba(212, 255, 0, 0.3);
+}
+
+.f78d .event-card h3 {
+  color: var(--punk-accent);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.f78d .event-card p,
+.f78d .event-meta {
+  color: #d0d0d0;
+}
+
+.f78d button,
+.f78d .event-details button,
+.f78d #toggle-member,
+.f78d #login-button {
+  background-color: #111;
+  border: var(--punk-border);
+  color: var(--punk-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.f78d button:hover,
+.f78d .event-details button:hover {
+  background: #1c1c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(212, 255, 0, 0.45);
+}
+
+.f78d #eventSearch {
+  background: #141414;
+  border: var(--punk-border);
+  color: var(--punk-accent);
+}
+
+.f78d #eventSearch:focus {
+  border-color: var(--punk-accent);
+  box-shadow: 0 0 10px rgba(212, 255, 0, 0.4);
+}
+
+.f78d .modal-content {
+  background: #131313;
+  border: var(--punk-border);
+  box-shadow: 0 0 20px rgba(212, 255, 0, 0.4);
+}
+
+.f78d .add-event-card {
+  border: var(--punk-border);
+}
+
+.f78d .add-event-card h3 {
+  color: var(--punk-accent);
+}
