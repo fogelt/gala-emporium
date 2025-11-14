@@ -74,6 +74,7 @@ main {
 
 /* === Event Card === */
 .event-card {
+  position: relative;
   background: #1a1a1a;
   border-radius: 16px;
   overflow: hidden;
@@ -141,7 +142,7 @@ main {
   align-items: center;
   z-index: 1000;
   padding: 0.5rem;
-  /* less padding */
+  overflow: hidden;
 }
 
 .modal-content {
@@ -151,16 +152,16 @@ main {
   width: 100%;
   max-width: 700px;
   max-height: 90vh;
-  /* modal fits viewport */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  padding: 0.5rem;
-  /* compact padding */
+  padding: 1rem;
+  overflow: hidden;
 }
 
+/* Close button */
 .event-modal .close-btn {
   position: absolute;
   top: 0.5rem;
@@ -171,6 +172,70 @@ main {
   color: #f2f2f2;
   cursor: pointer;
   z-index: 10;
+}
+
+/* Form inside modal */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.modal-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 0.25rem;
+}
+
+.modal-form input,
+.modal-form textarea {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #2a2a2a;
+  color: #f2f2f2;
+  font-size: 0.9rem;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+  outline: none;
+  border-color: #e63946;
+  box-shadow: 0 0 5px rgba(230, 57, 70, 0.5);
+}
+
+.modal-form button[type="submit"] {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.modal-form button[type="submit"]:hover {
+  background-color: #444;
+  border-color: #e63946;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.modal-form button[type="submit"]:active {
+  transform: translateY(0);
+  background-color: #2a2a2a;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional: smaller textareas for description */
+.modal-form textarea {
+  resize: vertical;
+  min-height: 60px;
 }
 
 .event-image-large {
@@ -273,197 +338,69 @@ main {
   padding: 1rem 0;
 }
 
-/* Mobile: 640px and below */
-@media (max-width: 640px) {
-  header {
-    background-color: rgba(17, 17, 17, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    top: 0;
-    z-index: 10;
-    padding: 0.5rem 1rem;
-  }
-
-  header nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.5rem 0;
-  }
-
-  header nav a {
-    display: block;
-    width: 100%;
-    text-align: left;
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
-    color: #f2f2f2;
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-
-  header nav a:hover,
-  body.start a[href="#start"]::after,
-  body.jazz-klubben a[href="#jazz-klubben"]::after,
-  body.punk-klubben a[href="#punk-klubben"]::after,
-  body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
-  body.metal-klubben a[href="#metal-klubben"]::after {
-    color: #e63946;
-    font-weight: 600;
-  }
-
-  header nav a::after {
-    bottom: 0;
-    height: 2px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-
-  header nav a:hover::after,
-  body.start a[href="#start"]::after,
-  body.jazz-klubben a[href="#jazz-klubben"]::after,
-  body.punk-klubben a[href="#punk-klubben"]::after,
-  body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
-  body.metal-klubben a[href="#metal-klubben"]::after {
-    transform: scaleX(1);
-  }
+header {
+  background-color: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  top: 0;
+  z-index: 10;
 }
 
-@media (max-width: 768px) {
-  header {
-    background-color: rgba(17, 17, 17, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    top: 0;
-    z-index: 10;
-  }
-
-  header nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(1rem, 4vw, 2rem);
-    padding: 1rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  header nav a {
-    position: relative;
-    text-decoration: none;
-    font-weight: 500;
-    color: #f2f2f2;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    transition: color 0.2s ease;
-  }
-
-  header nav a:hover,
-  body.start a[href="#start"],
-  body.jazz-klubben a[href="#jazz-klubben"],
-  body.punk-klubben a[href="#punk-klubben"],
-  body.\38 0s-rock-klubben a[href="#80s-rock-klubben"],
-  body.metal-klubben a[href="#metal-klubben"] {
-    color: #e63946;
-    font-weight: 600;
-  }
-
-  header nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #e63946;
-    border-radius: 2px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-
-  header nav a:hover::after,
-  body.start a[href="#start"]::after,
-  body.jazz-klubben a[href="#jazz-klubben"]::after,
-  body.punk-klubben a[href="#punk-klubben"]::after,
-  body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
-  body.metal-klubben a[href="#metal-klubben"]::after {
-    transform: scaleX(1);
-  }
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-@media (min-width: 1024px) {
-
-  header {
-    background-color: rgba(17, 17, 17, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    top: 0;
-    z-index: 10;
-  }
-
-  header nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(1rem, 4vw, 2rem);
-    padding: 1rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  header nav a {
-    position: relative;
-    text-decoration: none;
-    font-weight: 500;
-    color: #f2f2f2;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    transition: color 0.2s ease;
-  }
-
-  header nav a:hover,
-  body.start a[href="#start"],
-  body.jazz-klubben a[href="#jazz-klubben"],
-  body.punk-klubben a[href="#punk-klubben"],
-  body.\38 0s-rock-klubben a[href="#80s-rock-klubben"],
-  body.metal-klubben a[href="#metal-klubben"] {
-    color: #e63946;
-    font-weight: 600;
-  }
-
-  header nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #e63946;
-    border-radius: 2px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
-
-  header nav a:hover::after,
-  body.start a[href="#start"]::after,
-  body.jazz-klubben a[href="#jazz-klubben"]::after,
-  body.punk-klubben a[href="#punk-klubben"]::after,
-  body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
-  body.metal-klubben a[href="#metal-klubben"]::after {
-    transform: scaleX(1);
-  }
+header nav a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  color: #f2f2f2;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
 }
+
+header nav a:hover,
+body.start a[href="#start"],
+body.jazz-klubben a[href="#jazz-klubben"],
+body.punk-klubben a[href="#punk-klubben"],
+body.\38 0s-rock-klubben a[href="#80s-rock-klubben"],
+body.metal-klubben a[href="#metal-klubben"] {
+  color: #e63946;
+  font-weight: 600;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #e63946;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+header nav a:hover::after,
+body.start a[href="#start"]::after,
+body.jazz-klubben a[href="#jazz-klubben"]::after,
+body.punk-klubben a[href="#punk-klubben"]::after,
+body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
+body.metal-klubben a[href="#metal-klubben"]::after {
+  transform: scaleX(1);
+}
+
 
 /* Membership toggle button */
 #toggle-member {
@@ -490,4 +427,192 @@ main {
 #toggle-member:active {
   transform: translateY(0);
   background-color: #2a2a2a;
+}
+
+/* === LOGIN BUTTON STYLE === */
+#login-button {
+  position: absolute;
+  top: 0.8rem;
+  left: 1rem;
+  display: block;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  /* ensure it stays above header content */
+}
+
+/* Hover effect */
+#login-button:hover {
+  background-color: #333;
+  border-color: #e63946;
+  transform: translateY(-1px);
+}
+
+/* Click (active) effect */
+#login-button:active {
+  transform: translateY(0);
+  background-color: #2a2a2a;
+}
+
+/* Optional: style when logged in (using data attribute) */
+#login-button[data-logged-in="true"] {
+  background-color: #2e6f40;
+  border-color: #4caf50;
+}
+
+#login-button[data-logged-in="true"]:hover {
+  background-color: #388e3c;
+}
+
+/* === Add Event Card === */
+.add-event-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  /* match normal card size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  /* same as event card with image + content */
+  width: 100%;
+  /* adjust based on your grid */
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.add-event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: #e63946;
+}
+
+.add-event-card h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e63946;
+  margin: 0;
+}
+
+#add-club-nav-btn {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f2f2f2;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+#add-club-nav-btn:hover {
+  background-color: #1a1a1a;
+  border-color: #e63946;
+  transform: translateY(-1px);
+}
+
+#add-club-nav-btn:active {
+  background-color: #2a2a2a;
+  transform: translateY(0);
+}
+
+#delete-event-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+#delete-event-btn:hover {
+  background: #e63946;
+}
+
+#delete-club-btn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 18px;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  transition: background 0.2s ease;
+}
+
+#delete-club-btn:hover {
+  background: #e63946;
+}
+
+#admin-club-list-container {
+  position: fixed;
+  top: 50%;
+  /* Center vertically */
+  left: 8px;
+  /* Move further to the left */
+  transform: translateY(-50%);
+  /* Adjust vertical centering */
+  width: 180px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  /* Scroll internally if list is long */
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+  z-index: 1000;
+}
+
+#admin-club-list-container h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: #e63946;
+}
+
+#admin-club-list-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#admin-club-list-container li {
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  background: #2a2a2a;
+  border-radius: 4px;
+  cursor: default;
+}
+
+#admin-club-list-container li:hover {
+  background: #3a3a3a;
+}
+
+#admin-club-list-container:empty {
+  display: none;
 }
