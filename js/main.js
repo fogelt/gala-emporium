@@ -5,21 +5,21 @@ import { setupAdminClicks } from './utils/admin-functions.js';
 import { appendLoginButton } from './utils/admin-login.js';
 import { showEventDetails, setupEventCardClicks } from './utils/event-info.js';
 import { setupSearch, filterAndRenderEvents } from './utils/search.js';
-import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js'; //1 importera
+import { updateMembershipDisplay, eraseMemberButton, appendMemberButton } from './utils/membership.js'; //1 importera alla funk Ma
 
 
 const staticPages = {
   "start": { label: "Start", function: start }
 };
 
-async function createMenu() { // skapar vi menyn
+async function createMenu() {
   const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
   const isAdmin = loggedInUser && loggedInUser.role === 'admin';
 
   const res = await fetch('http://localhost:3000/clubs');
   const clubs = await res.json();
 
-  const links = [
+  const links = [                                                             // skapamenyn
 
     ...Object.entries(staticPages).map(([urlHash, { label }]) => `<a href="#${urlHash}">${label}</a>`),
 
@@ -40,7 +40,7 @@ async function createMenu() { // skapar vi menyn
 
 async function loadPageContent() {
   const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
-  const isAdmin = loggedInUser?.role === 'admin'; // laddas inneh
+  const isAdmin = loggedInUser?.role === 'admin';
 
   document.querySelector('header nav').innerHTML = await createMenu();
 
@@ -51,12 +51,12 @@ async function loadPageContent() {
 
   let pageFunction;
   if (staticPages[clubId]) {
-    pageFunction = staticPages[clubId].function; // hamta funktion menyn
+    pageFunction = staticPages[clubId].function; // hamta ratt funktion M
   } else {
     pageFunction = () => loadClub(clubId);
   }
 
-  const { html, events } = await pageFunction(); // vanta funktionen klart
+  const { html, events } = await pageFunction(); // vanta F klart
   document.querySelector('main').innerHTML = html;
 
   if (isAdmin) {

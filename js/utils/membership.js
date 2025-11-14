@@ -4,28 +4,28 @@ export function updateMembershipDisplay(club) {
 
   if (!toggleBtn) return;
 
-  let isMember = userMemberships.includes(club); // klubb namnet i listan
-  toggleBtn.textContent = isMember ? 'Lämna klubben' : 'Gå med i klubben'; //uppdatera knapptexten beroende på medlemskap
+  let isMember = userMemberships.includes(club); // klubb Na F listan
+  toggleBtn.textContent = isMember ? 'Lämna klubben' : 'Gå med i klubben'; //uppdatera knapptexten Me
 }
 
 export function appendMemberButton(club) {
   let toggleBtn = document.createElement('button');
-  toggleBtn.id = 'toggle-member'; // sätt ett id för att kunna hitta knappen senare
-  document.body.appendChild(toggleBtn); // lägg till knappen i body
+  toggleBtn.id = 'toggle-member'; // sätt ett id 
+  document.body.appendChild(toggleBtn);
 
-  toggleBtn.addEventListener('click', () => { //lyssna efter klick 
+  toggleBtn.addEventListener('click', () => {
     if (userMemberships.includes(club)) {
-      userMemberships = userMemberships.filter(c => c !== club); // om användaren är medlem, ta bort klubben från listan 
+      userMemberships = userMemberships.filter(c => c !== club);
     } else {
-      userMemberships.push(club); // om användaren inte är medlem, lägg till klubben i listan 
+      userMemberships.push(club);
     }
-    updateMembershipDisplay(club); //kallar på funktionen för att uppdatera knapptexten efter ändring
+    updateMembershipDisplay(club); //kallas funktion upda
   });
 
   updateMembershipDisplay(club);
 }
 
-export function eraseMemberButton() { // ta bort medlemsknappen om den finns
+export function eraseMemberButton() { // bort medlemsknap
   document.querySelector('#member-text')?.remove();
   document.querySelector('#toggle-member')?.remove();
 }
