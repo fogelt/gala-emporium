@@ -1,3 +1,99 @@
+.k92m {
+  --piano-accent: rgb(255, 40, 40); /* ger "piano-accent" en specifik färg, så man kan kalla samma färg, samma princip på alla rader */
+  --piano-bg: #0a0a0a;
+  --piano-card-bg: #141414;
+  --piano-border: 2px solid rgba(255, 40, 40, 0.45);
+
+  background: #0a0a0a;;
+  color: #e8e8e8;
+
+  background-image:
+    linear-gradient(90deg, rgba(255, 40, 40, 0.03) 0%, transparent 100%);
+}
+
+
+.k92m h1,
+.k92m h2,
+.k92m h3 {
+  color: var(--piano-accent);
+  text-shadow: 0 0 8px rgba(255, 40, 40, 0.35);
+  letter-spacing: -0.01em;
+}
+
+
 .k92m p {
-  color: rgb(255, 0, 0);
+  color: #f0f0f0;
+  font-weight: 400;
+}
+
+
+.k92m .event-card {
+  background: var(--piano-card-bg);
+  border: var(--piano-border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.k92m .event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(255, 40, 40, 0.28);
+}
+
+.k92m .event-card h3 {
+  color: var(--piano-accent);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.k92m .event-card p,
+.k92m .event-meta {
+  color: #d0d0d0;
+}
+
+
+.k92m button,
+.k92m .event-details button,
+.k92m #toggle-member,
+.k92m #login-button {
+  background-color: #0d0d0d;
+  border: var(--piano-border);
+  color: var(--piano-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.k92m button:hover,
+.k92m .event-details button:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(255, 40, 40, 0.5);
+}
+
+
+.k92m #eventSearch {
+  background: #101010;
+  border: var(--piano-border);
+  color: var(--piano-accent);
+}
+
+.k92m #eventSearch:focus {
+  border-color: var(--piano-accent);
+  box-shadow: 0 0 10px rgba(255, 40, 40, 0.45);
+}
+
+
+.k92m .modal-content {
+  background: #111;
+  border: var(--piano-border);
+  box-shadow: 0 0 20px rgba(255, 40, 40, 0.45);
+}
+
+
+.k92m .add-event-card {
+  border: var(--piano-border);
+}
+
+.k92m .add-event-card h3 {
+  color: var(--piano-accent);
 }

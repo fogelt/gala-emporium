@@ -388,6 +388,7 @@ body.start a[href="#start"],
 body.jazz-klubben a[href="#jazz-klubben"],
 body.punk-klubben a[href="#punk-klubben"],
 body.\38 0s-rock-klubben a[href="#80s-rock-klubben"],
+body.piano-klubben a[href="#piano-klubben"],
 body.metal-klubben a[href="#metal-klubben"] {
   color: #e63946;
   font-weight: 600;
@@ -412,6 +413,7 @@ body.start a[href="#start"]::after,
 body.jazz-klubben a[href="#jazz-klubben"]::after,
 body.punk-klubben a[href="#punk-klubben"]::after,
 body.\38 0s-rock-klubben a[href="#80s-rock-klubben"]::after,
+body.piano-klubben a[href="#piano-klubben"]::after,
 body.metal-klubben a[href="#metal-klubben"]::after {
   transform: scaleX(1);
 }
