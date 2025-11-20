@@ -1,3 +1,61 @@
-.a37c p {
-  color: aqua;
+/* Jazz Club Theme - Elegant, mörk och sofistikerad */
+body.a37c {
+  background: linear-gradient(135deg, #1a0a0a 0%, #2d1810 50%, #1a0a0a 100%);
+  color: #f5e6d3;
+  font-family: 'Georgia', serif;
+}
+
+/* Rubriker med vintage jazz-känsla */
+body.a37c h1,
+body.a37c h2,
+body.a37c h3 {
+  color: #d4af37;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-style: italic;
+}
+
+/* Event-kort med smokey jazz-atmosfär */
+body.a37c .event-card {
+  background: rgba(45, 24, 16, 0.8);
+  border: 1px solid #d4af37;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+body.a37c .event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* Text med mjuk, varm färg */
+body.a37c p {
+  color: #f5e6d3;
+  line-height: 1.6;
+}
+
+/* Länkar med guldton */
+body.a37c a {
+  color: #d4af37;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+body.a37c a:hover {
+  color: #ffd700;
+}
+
+/* Knappar med elegant stil */
+body.a37c button {
+  background: linear-gradient(135deg, #8b6914 0%, #d4af37 100%);
+  color: #1a0a0a;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.a37c button:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.4);
 }
